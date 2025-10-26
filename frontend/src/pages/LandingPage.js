@@ -57,9 +57,9 @@ const LandingPage = () => {
           {/* Master SAGE Logo */}
           <div className="mb-8 scale-in">
             <img 
-              src="https://customer-assets.emergentagent.com/job_seo-aeo-geo/artifacts/2rdfi3e8_Master%20SAGE%20Logo.png" 
+              src="https://customer-assets.emergentagent.com/job_seo-aeo-geo/artifacts/w0rrqvvn_Master_SAGE%20logo.png" 
               alt="SAGE Logo" 
-              className="mx-auto w-48 lg:w-64 h-auto"
+              className="mx-auto w-64 sm:w-80 md:w-96 lg:w-[512px] xl:w-[600px] h-auto max-w-full"
               data-testid="sage-logo"
             />
           </div>
