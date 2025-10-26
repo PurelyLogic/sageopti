@@ -36,24 +36,75 @@ body {
   z-index: 1;
 }
 
+/* Animated Ambient Particles */
+.ambient-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.particle-dot {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: rgba(76, 175, 80, 0.6);
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.8);
+  animation: particle-drift 20s linear infinite;
+}
+
+@keyframes particle-drift {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(100px, -800px) scale(0.5);
+    opacity: 0;
+  }
+}
+
+.particle-dot:nth-child(1) { left: 10%; animation-delay: 0s; animation-duration: 25s; }
+.particle-dot:nth-child(2) { left: 20%; animation-delay: 2s; animation-duration: 22s; }
+.particle-dot:nth-child(3) { left: 30%; animation-delay: 4s; animation-duration: 28s; }
+.particle-dot:nth-child(4) { left: 40%; animation-delay: 1s; animation-duration: 24s; }
+.particle-dot:nth-child(5) { left: 50%; animation-delay: 3s; animation-duration: 26s; }
+.particle-dot:nth-child(6) { left: 60%; animation-delay: 5s; animation-duration: 23s; }
+.particle-dot:nth-child(7) { left: 70%; animation-delay: 2.5s; animation-duration: 27s; }
+.particle-dot:nth-child(8) { left: 80%; animation-delay: 4.5s; animation-duration: 25s; }
+.particle-dot:nth-child(9) { left: 90%; animation-delay: 1.5s; animation-duration: 29s; }
+.particle-dot:nth-child(10) { left: 15%; animation-delay: 6s; animation-duration: 21s; }
+
 /* Animated Glow Effect - Brand Colors */
 @keyframes orbit-glow-brand {
   0% {
-    transform: translate(-50%, -50%) rotate(0deg);
+    transform: translate(-50%, -50%) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(180deg) scale(1.1);
   }
   100% {
-    transform: translate(-50%, -50%) rotate(360deg);
+    transform: translate(-50%, -50%) rotate(360deg) scale(1);
   }
 }
 
 @keyframes pulse-glow-brand {
   0%, 100% {
     opacity: 0.3;
-    transform: scale(1);
   }
   50% {
     opacity: 0.5;
-    transform: scale(1.1);
   }
 }
 
@@ -76,8 +127,59 @@ body {
   background: linear-gradient(135deg, #0A3D62 0%, #4CAF50 100%);
   filter: blur(80px);
   opacity: 0.4;
-  animation: orbit-glow-brand 25s linear infinite, pulse-glow-brand 5s ease-in-out infinite;
+  animation: orbit-glow-brand 25s ease-in-out infinite, pulse-glow-brand 5s ease-in-out infinite;
 }
+
+/* Fade In Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.scale-in {
+  animation: scaleIn 0.6s ease-out forwards;
+}
+
+.delay-100 { animation-delay: 0.1s; opacity: 0; }
+.delay-200 { animation-delay: 0.2s; opacity: 0; }
+.delay-300 { animation-delay: 0.3s; opacity: 0; }
+.delay-400 { animation-delay: 0.4s; opacity: 0; }
+.delay-500 { animation-delay: 0.5s; opacity: 0; }
+.delay-600 { animation-delay: 0.6s; opacity: 0; }
 
 /* Brand Gradient Text with Animation */
 .brand-gradient-text {
@@ -110,6 +212,7 @@ body {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   animation: gradient-shift 4s ease infinite;
+  text-shadow: 0 4px 20px rgba(76, 175, 80, 0.3);
 }
 
 /* Brand Section Titles */
@@ -120,12 +223,12 @@ body {
   letter-spacing: 0.03em;
 }
 
-/* Button Styles - Brand */
+/* Button Styles - Brand with Depth */
 .btn-primary-brand {
   background: linear-gradient(to right, #0A3D62, #4CAF50);
   color: #ffffff;
   padding: 16px 40px;
-  border-radius: 8px;
+  border-radius: 12px;
   border: none;
   font-weight: 700;
   font-size: 15px;
@@ -133,21 +236,28 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.05em;
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3), 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .btn-primary-brand:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(76, 175, 80, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(76, 175, 80, 0.5), 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.btn-primary-brand:active {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(76, 175, 80, 0.4), 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .btn-secondary-brand {
-  background: transparent;
+  background: rgba(15, 15, 16, 0.8);
+  backdrop-filter: blur(10px);
   color: #ffffff;
   padding: 16px 40px;
-  border-radius: 8px;
+  border-radius: 12px;
   border: 2px solid transparent;
-  background-image: linear-gradient(#0f0f10, #0f0f10), linear-gradient(to right, #0A3D62, #4CAF50);
+  background-image: linear-gradient(rgba(15, 15, 16, 0.8), rgba(15, 15, 16, 0.8)), linear-gradient(to right, #0A3D62, #4CAF50);
   background-origin: border-box;
   background-clip: padding-box, border-box;
   font-weight: 700;
@@ -156,42 +266,60 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.05em;
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2), 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .btn-secondary-brand:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 0 20px rgba(76, 175, 80, 0.5);
+  transform: translateY(-3px);
+  box-shadow: 0 0 30px rgba(76, 175, 80, 0.6), 0 4px 20px rgba(76, 175, 80, 0.3);
+  background-image: linear-gradient(rgba(15, 15, 16, 0.9), rgba(15, 15, 16, 0.9)), linear-gradient(to right, #0A3D62, #4CAF50);
 }
 
-/* Score Card - Brand */
+/* Score Card - Brand with Glass Morphism */
 .score-card-brand {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(76, 175, 80, 0.2);
-  border-radius: 16px;
-  padding: 28px;
-  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  border-radius: 20px;
+  padding: 32px;
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .score-card-brand:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 32px rgba(76, 175, 80, 0.2);
-  border-color: rgba(76, 175, 80, 0.4);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(76, 175, 80, 0.25), 0 4px 15px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  border-color: rgba(76, 175, 80, 0.5);
 }
 
 /* Glass Panel - Brand */
 .glass-panel-brand {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(24px);
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(76, 175, 80, 0.2);
-  border-radius: 16px;
-  transition: transform 0.2s, border-color 0.2s;
+  border-radius: 20px;
+  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .glass-panel-brand:hover {
   border-color: rgba(76, 175, 80, 0.4);
-  transform: translateY(-2px);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(76, 175, 80, 0.2), 0 4px 15px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* Section Container Glass */
+.section-glass {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 24px;
+  padding: 48px 24px;
+  margin: 0 auto;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.03);
 }
 
 /* Original styles for other pages */
@@ -343,4 +471,32 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .brand-title {
+    font-size: 3rem;
+  }
+  
+  .score-card-brand,
+  .glass-panel-brand {
+    padding: 24px;
+  }
+  
+  .section-glass {
+    padding: 32px 16px;
+  }
+  
+  .btn-primary-brand,
+  .btn-secondary-brand {
+    padding: 14px 28px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand-title {
+    font-size: 2.5rem;
+  }
 }

@@ -1,16 +1,52 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { Sparkles, TrendingUp, MapPin, Zap, Shield, BarChart3 } from "lucide-react";
 
 const LandingPage = () => {
   const navigate = useNavigate();
+  const heroRef = useRef(null);
+
+  useEffect(() => {
+    // Add scroll reveal effect
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in-up');
+        }
+      });
+    }, observerOptions);
+
+    const elements = document.querySelectorAll('.scroll-reveal');
+    elements.forEach(el => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div className="min-h-screen bg-[#0f0f10] landing-page">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center px-6 overflow-hidden">
+      <section className="relative min-h-screen flex flex-col items-center justify-center px-6 overflow-hidden" ref={heroRef}>
         {/* Background Gradient Overlay */}
         <div className="brand-gradient-overlay"></div>
+
+        {/* Ambient Particles */}
+        <div className="ambient-particles">
+          <div className="particle-dot"></div>
+          <div className="particle-dot"></div>
+          <div className="particle-dot"></div>
+          <div className="particle-dot"></div>
+          <div className="particle-dot"></div>
+          <div className="particle-dot"></div>
+          <div className="particle-dot"></div>
+          <div className="particle-dot"></div>
+          <div className="particle-dot"></div>
+          <div className="particle-dot"></div>
+        </div>
 
         {/* Animated Glow Effect */}
         <div className="glow-container-brand">
@@ -19,7 +55,7 @@ const LandingPage = () => {
 
         <div className="relative z-10 text-center max-w-5xl">
           {/* Master SAGE Logo */}
-          <div className="mb-8">
+          <div className="mb-8 scale-in">
             <img 
               src="https://customer-assets.emergentagent.com/job_seo-aeo-geo/artifacts/2rdfi3e8_Master%20SAGE%20Logo.png" 
               alt="SAGE Logo" 
@@ -28,19 +64,19 @@ const LandingPage = () => {
             />
           </div>
           
-          <h1 className="text-6xl lg:text-7xl font-bold tracking-tight mb-6 brand-title">
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight mb-6 brand-title fade-in-up delay-200">
             MEET SAGE
           </h1>
           
-          <p className="text-2xl lg:text-3xl font-semibold text-gray-300 mb-4">
+          <p className="text-xl sm:text-2xl lg:text-3xl font-semibold text-gray-300 mb-4 fade-in-up delay-300">
             Optimizing All Engines.
           </p>
           
-          <p className="text-lg text-gray-400 mb-12 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg text-gray-400 mb-12 max-w-3xl mx-auto fade-in-up delay-400">
             Audit, Analyze, and Elevate your digital presence across Search, Answers, and Maps.
           </p>
 
-          <div className="flex flex-wrap gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row flex-wrap gap-4 justify-center fade-in-up delay-500">
             <button 
               onClick={() => navigate('/audit')}
               className="btn-primary-brand"
@@ -62,42 +98,44 @@ const LandingPage = () => {
       {/* Features Section */}
       <section className="py-24 px-6 relative">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-16 brand-section-title">
-            THREE PILLARS OF <span className="brand-gradient-text">DIGITAL EXCELLENCE</span>
-          </h2>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            {/* SEO */}
-            <div className="score-card-brand">
-              <div className="flex items-center gap-3 mb-4">
-                <TrendingUp className="w-8 h-8 text-[#4CAF50]" />
-                <h3 className="text-2xl font-bold">SEO</h3>
+          <div className="section-glass">
+            <h2 className="text-3xl sm:text-4xl font-bold text-center mb-16 brand-section-title scroll-reveal">
+              THREE PILLARS OF <span className="brand-gradient-text">DIGITAL EXCELLENCE</span>
+            </h2>
+            
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+              {/* SEO */}
+              <div className="score-card-brand scroll-reveal" style={{animationDelay: '0.1s'}}>
+                <div className="flex items-center gap-3 mb-4">
+                  <TrendingUp className="w-8 h-8 text-[#4CAF50]" />
+                  <h3 className="text-xl sm:text-2xl font-bold">SEO</h3>
+                </div>
+                <p className="text-sm sm:text-base text-gray-400">
+                  Search Engine Optimization to boost your rankings, organic traffic, and visibility on Google, Bing, and more.
+                </p>
               </div>
-              <p className="text-gray-400">
-                Search Engine Optimization to boost your rankings, organic traffic, and visibility on Google, Bing, and more.
-              </p>
-            </div>
 
-            {/* AEO */}
-            <div className="score-card-brand">
-              <div className="flex items-center gap-3 mb-4">
-                <Zap className="w-8 h-8 text-[#4CAF50]" />
-                <h3 className="text-2xl font-bold">AEO</h3>
+              {/* AEO */}
+              <div className="score-card-brand scroll-reveal" style={{animationDelay: '0.2s'}}>
+                <div className="flex items-center gap-3 mb-4">
+                  <Zap className="w-8 h-8 text-[#4CAF50]" />
+                  <h3 className="text-xl sm:text-2xl font-bold">AEO</h3>
+                </div>
+                <p className="text-sm sm:text-base text-gray-400">
+                  Answer Engine Optimization for featured snippets, voice search, and AI-powered answer platforms.
+                </p>
               </div>
-              <p className="text-gray-400">
-                Answer Engine Optimization for featured snippets, voice search, and AI-powered answer platforms.
-              </p>
-            </div>
 
-            {/* GEO */}
-            <div className="score-card-brand">
-              <div className="flex items-center gap-3 mb-4">
-                <MapPin className="w-8 h-8 text-[#4CAF50]" />
-                <h3 className="text-2xl font-bold">GEO</h3>
+              {/* GEO */}
+              <div className="score-card-brand scroll-reveal" style={{animationDelay: '0.3s'}}>
+                <div className="flex items-center gap-3 mb-4">
+                  <MapPin className="w-8 h-8 text-[#4CAF50]" />
+                  <h3 className="text-xl sm:text-2xl font-bold">GEO</h3>
+                </div>
+                <p className="text-sm sm:text-base text-gray-400">
+                  Local Optimization to dominate Google Maps, local search results, and drive foot traffic to your business.
+                </p>
               </div>
-              <p className="text-gray-400">
-                Local Optimization to dominate Google Maps, local search results, and drive foot traffic to your business.
-              </p>
             </div>
           </div>
         </div>
@@ -106,27 +144,29 @@ const LandingPage = () => {
       {/* Integration Placeholders */}
       <section className="py-24 px-6 bg-gradient-to-b from-transparent to-[#0a0a0b] relative">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-16 brand-section-title">
-            POWERED BY <span className="brand-gradient-text">ADVANCED INTEGRATIONS</span>
-          </h2>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="glass-panel-brand p-8 text-center">
-              <Shield className="w-12 h-12 text-[#4CAF50] mx-auto mb-4" />
-              <h3 className="text-xl font-bold mb-2">FORGE INTEGRATION</h3>
-              <p className="text-gray-400 text-sm">Enterprise-grade analytics engine</p>
-            </div>
+          <div className="section-glass">
+            <h2 className="text-3xl sm:text-4xl font-bold text-center mb-16 brand-section-title scroll-reveal">
+              POWERED BY <span className="brand-gradient-text">ADVANCED INTEGRATIONS</span>
+            </h2>
+            
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+              <div className="glass-panel-brand p-6 sm:p-8 text-center scroll-reveal" style={{animationDelay: '0.1s'}}>
+                <Shield className="w-10 h-10 sm:w-12 sm:h-12 text-[#4CAF50] mx-auto mb-4" />
+                <h3 className="text-lg sm:text-xl font-bold mb-2">FORGE INTEGRATION</h3>
+                <p className="text-gray-400 text-xs sm:text-sm">Enterprise-grade analytics engine</p>
+              </div>
 
-            <div className="glass-panel-brand p-8 text-center">
-              <BarChart3 className="w-12 h-12 text-[#4CAF50] mx-auto mb-4" />
-              <h3 className="text-xl font-bold mb-2">CLAUDE ASSISTANT</h3>
-              <p className="text-gray-400 text-sm">AI-powered recommendations</p>
-            </div>
+              <div className="glass-panel-brand p-6 sm:p-8 text-center scroll-reveal" style={{animationDelay: '0.2s'}}>
+                <BarChart3 className="w-10 h-10 sm:w-12 sm:h-12 text-[#4CAF50] mx-auto mb-4" />
+                <h3 className="text-lg sm:text-xl font-bold mb-2">CLAUDE ASSISTANT</h3>
+                <p className="text-gray-400 text-xs sm:text-sm">AI-powered recommendations</p>
+              </div>
 
-            <div className="glass-panel-brand p-8 text-center">
-              <Sparkles className="w-12 h-12 text-[#4CAF50] mx-auto mb-4" />
-              <h3 className="text-xl font-bold mb-2">PURELYLOGIC API</h3>
-              <p className="text-gray-400 text-sm">Real-time optimization insights</p>
+              <div className="glass-panel-brand p-6 sm:p-8 text-center scroll-reveal" style={{animationDelay: '0.3s'}}>
+                <Sparkles className="w-10 h-10 sm:w-12 sm:h-12 text-[#4CAF50] mx-auto mb-4" />
+                <h3 className="text-lg sm:text-xl font-bold mb-2">PURELYLOGIC API</h3>
+                <p className="text-gray-400 text-xs sm:text-sm">Real-time optimization insights</p>
+              </div>
             </div>
           </div>
         </div>
@@ -135,7 +175,7 @@ const LandingPage = () => {
       {/* Footer */}
       <footer className="py-8 px-6 border-t border-gray-800">
         <div className="max-w-6xl mx-auto text-center">
-          <p className="text-gray-400">
+          <p className="text-sm sm:text-base text-gray-400">
             © 2025 <a href="https://SageOpti.com" target="_blank" rel="noopener noreferrer" className="text-[#4CAF50] hover:underline">PurelyLogic</a>. All rights reserved.
           </p>
         </div>
