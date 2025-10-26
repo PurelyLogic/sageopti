@@ -1,4 +1,4 @@
-from fastapi import FastAPI, APIRouter
+from fastapi import FastAPI, APIRouter, HTTPException
 from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
@@ -6,9 +6,10 @@ import os
 import logging
 from pathlib import Path
 from pydantic import BaseModel, Field, ConfigDict
-from typing import List
+from typing import List, Dict, Any
 import uuid
 from datetime import datetime, timezone
+import random
 
 
 ROOT_DIR = Path(__file__).parent
@@ -27,44 +28,124 @@ api_router = APIRouter(prefix="/api")
 
 
 # Define Models
-class StatusCheck(BaseModel):
-    model_config = ConfigDict(extra="ignore")  # Ignore MongoDB's _id field
+class AuditRequest(BaseModel):
+    url: str
+
+class Recommendation(BaseModel):
+    category: str
+    priority: str
+    issue: str
+    solution: str
+
+class Audit(BaseModel):
+    model_config = ConfigDict(extra="ignore")
     
     id: str = Field(default_factory=lambda: str(uuid.uuid4()))
-    client_name: str
+    url: str
+    seo_score: int
+    aeo_score: int
+    geo_score: int
+    recommendations: List[Recommendation]
     timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
 
-class StatusCheckCreate(BaseModel):
-    client_name: str
 
-# Add your routes to the router instead of directly to app
+# Mock audit data generator
+def generate_mock_audit(url: str) -> Dict[str, Any]:
+    seo_score = random.randint(70, 95)
+    aeo_score = random.randint(65, 90)
+    geo_score = random.randint(75, 92)
+    
+    recommendations = [
+        {
+            "category": "SEO",
+            "priority": "High",
+            "issue": "Missing meta description on homepage",
+            "solution": "Add a compelling 150-160 character meta description that includes your primary keywords"
+        },
+        {
+            "category": "SEO",
+            "priority": "Medium",
+            "issue": "Images missing alt text",
+            "solution": "Add descriptive alt text to all images for better accessibility and SEO"
+        },
+        {
+            "category": "AEO",
+            "priority": "High",
+            "issue": "Missing structured data (Schema.org)",
+            "solution": "Implement JSON-LD structured data for Organization, FAQPage, and Article types"
+        },
+        {
+            "category": "AEO",
+            "priority": "Medium",
+            "issue": "Content not optimized for featured snippets",
+            "solution": "Use question-answer format and clear headings to target featured snippets"
+        },
+        {
+            "category": "GEO",
+            "priority": "High",
+            "issue": "Google Business Profile not fully optimized",
+            "solution": "Complete all sections of your Google Business Profile and add regular posts"
+        },
+        {
+            "category": "GEO",
+            "priority": "Low",
+            "issue": "NAP consistency issues across directories",
+            "solution": "Ensure Name, Address, Phone number are consistent across all online directories"
+        }
+    ]
+    
+    return {
+        "url": url,
+        "seo_score": seo_score,
+        "aeo_score": aeo_score,
+        "geo_score": geo_score,
+        "recommendations": recommendations
+    }
+
+
+# Routes
 @api_router.get("/")
 async def root():
-    return {"message": "Hello World"}
+    return {"message": "SAGE API - Optimizing All Engines"}
 
-@api_router.post("/status", response_model=StatusCheck)
-async def create_status_check(input: StatusCheckCreate):
-    status_dict = input.model_dump()
-    status_obj = StatusCheck(**status_dict)
+@api_router.post("/audit", response_model=Audit)
+async def create_audit(request: AuditRequest):
+    """Run a website audit and return scores with recommendations"""
+    audit_data = generate_mock_audit(request.url)
+    audit_obj = Audit(**audit_data)
     
-    # Convert to dict and serialize datetime to ISO string for MongoDB
-    doc = status_obj.model_dump()
+    # Store in database
+    doc = audit_obj.model_dump()
     doc['timestamp'] = doc['timestamp'].isoformat()
     
-    _ = await db.status_checks.insert_one(doc)
-    return status_obj
+    await db.audits.insert_one(doc)
+    return audit_obj
 
-@api_router.get("/status", response_model=List[StatusCheck])
-async def get_status_checks():
-    # Exclude MongoDB's _id field from the query results
-    status_checks = await db.status_checks.find({}, {"_id": 0}).to_list(1000)
+@api_router.get("/audits", response_model=List[Audit])
+async def get_audits():
+    """Get all audit history"""
+    audits = await db.audits.find({}, {"_id": 0}).sort("timestamp", -1).to_list(100)
     
     # Convert ISO string timestamps back to datetime objects
-    for check in status_checks:
-        if isinstance(check['timestamp'], str):
-            check['timestamp'] = datetime.fromisoformat(check['timestamp'])
+    for audit in audits:
+        if isinstance(audit['timestamp'], str):
+            audit['timestamp'] = datetime.fromisoformat(audit['timestamp'])
     
-    return status_checks
+    return audits
+
+@api_router.get("/report/{audit_id}")
+async def get_report(audit_id: str):
+    """Get detailed report for a specific audit"""
+    audit = await db.audits.find_one({"id": audit_id}, {"_id": 0})
+    
+    if not audit:
+        raise HTTPException(status_code=404, detail="Audit not found")
+    
+    if isinstance(audit['timestamp'], str):
+        audit['timestamp'] = datetime.fromisoformat(audit['timestamp'])
+    
+    return audit
+
 
 # Include the router in the main app
 app.include_router(api_router)
