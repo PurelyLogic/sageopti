@@ -146,7 +146,7 @@ const LandingPage = () => {
         <div className="max-w-6xl mx-auto">
           <div className="section-glass">
             <h2 className="text-3xl sm:text-4xl font-bold text-center mb-16 brand-section-title scroll-reveal">
-              POWERED BY <span className="brand-gradient-text">ADVANCED INTEGRATIONS</span>
+              POWERED BY <span className="brand-gradient-text">PURELYLOGIC INTELLIGENCE</span>
             </h2>
             
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
