@@ -64,15 +64,15 @@ const LandingPage = () => {
             />
           </div>
           
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight mb-6 brand-title fade-in-up delay-200">
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight mb-5 brand-title fade-in-up delay-200">
             MEET SAGE
           </h1>
           
-          <p className="text-xl sm:text-2xl lg:text-3xl font-semibold text-gray-300 mb-4 fade-in-up delay-300">
+          <p className="text-xl sm:text-2xl lg:text-3xl font-semibold mb-5 fade-in-up delay-300 shimmer-tagline">
             Optimizing All Engines.
           </p>
           
-          <p className="text-base sm:text-lg text-gray-400 mb-12 max-w-3xl mx-auto fade-in-up delay-400">
+          <p className="text-base sm:text-lg text-gray-400 mb-8 max-w-3xl mx-auto fade-in-up delay-400">
             Audit, Analyze, and Elevate your digital presence across Search, Answers, and Maps.
           </p>
 

@@ -36,7 +36,7 @@ body {
   z-index: 1;
 }
 
-/* Animated Ambient Particles */
+/* Ambient Particles */
 .ambient-particles {
   position: absolute;
   top: 0;
@@ -180,6 +180,27 @@ body {
 .delay-400 { animation-delay: 0.4s; opacity: 0; }
 .delay-500 { animation-delay: 0.5s; opacity: 0; }
 .delay-600 { animation-delay: 0.6s; opacity: 0; }
+
+/* Shimmer Animation for Tagline */
+@keyframes shimmer {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.shimmer-tagline {
+  background: linear-gradient(90deg, #00B3A4 0%, #0EF6A7 50%, #00B3A4 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 5s linear infinite;
+  text-shadow: 0 0 12px rgba(14, 246, 167, 0.4);
+  color: transparent;
+}
 
 /* Brand Gradient Text with Animation */
 .brand-gradient-text {
