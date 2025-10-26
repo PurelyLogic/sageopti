@@ -7,22 +7,17 @@ const LandingPage = () => {
   const heroRef = useRef(null);
 
   useEffect(() => {
-    // Add scroll reveal effect
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -100px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
+    // Scroll reveal animations for sections
+    const reveals = document.querySelectorAll(".reveal-section");
+    const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('fade-in-up');
+          entry.target.classList.add("active");
         }
       });
-    }, observerOptions);
-
-    const elements = document.querySelectorAll('.scroll-reveal');
-    elements.forEach(el => observer.observe(el));
+    }, { threshold: 0.1 });
+    
+    reveals.forEach(r => observer.observe(r));
 
     return () => observer.disconnect();
   }, []);
@@ -68,9 +63,9 @@ const LandingPage = () => {
             MEET SAGE
           </h1>
           
-          <p className="text-xl sm:text-2xl lg:text-3xl font-semibold mb-5 fade-in-up delay-300 shimmer-tagline">
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold mb-5 fade-in-up delay-300 shimmer-headline">
             Optimizing All Engines.
-          </p>
+          </h2>
           
           <p className="text-base sm:text-lg text-gray-400 mb-8 max-w-3xl mx-auto fade-in-up delay-400">
             Audit, Analyze, and Elevate your digital presence across Search, Answers, and Maps.
@@ -99,13 +94,15 @@ const LandingPage = () => {
       <section className="py-24 px-6 relative">
         <div className="max-w-6xl mx-auto">
           <div className="section-glass">
-            <h2 className="text-3xl sm:text-4xl font-bold text-center mb-16 brand-section-title scroll-reveal">
-              THREE PILLARS OF <span className="brand-gradient-text">DIGITAL EXCELLENCE</span>
-            </h2>
+            <div className="reveal-section">
+              <h2 className="text-3xl sm:text-4xl font-bold text-center mb-16 brand-section-title">
+                THREE PILLARS OF <span className="brand-gradient-text">DIGITAL EXCELLENCE</span>
+              </h2>
+            </div>
             
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
               {/* SEO */}
-              <div className="score-card-brand scroll-reveal" style={{animationDelay: '0.1s'}}>
+              <div className="score-card-brand reveal-section">
                 <div className="flex items-center gap-3 mb-4">
                   <TrendingUp className="w-8 h-8 text-[#4CAF50]" />
                   <h3 className="text-xl sm:text-2xl font-bold">SEO</h3>
@@ -116,7 +113,7 @@ const LandingPage = () => {
               </div>
 
               {/* AEO */}
-              <div className="score-card-brand scroll-reveal" style={{animationDelay: '0.2s'}}>
+              <div className="score-card-brand reveal-section">
                 <div className="flex items-center gap-3 mb-4">
                   <Zap className="w-8 h-8 text-[#4CAF50]" />
                   <h3 className="text-xl sm:text-2xl font-bold">AEO</h3>
@@ -127,7 +124,7 @@ const LandingPage = () => {
               </div>
 
               {/* GEO */}
-              <div className="score-card-brand scroll-reveal" style={{animationDelay: '0.3s'}}>
+              <div className="score-card-brand reveal-section">
                 <div className="flex items-center gap-3 mb-4">
                   <MapPin className="w-8 h-8 text-[#4CAF50]" />
                   <h3 className="text-xl sm:text-2xl font-bold">GEO</h3>
@@ -145,24 +142,26 @@ const LandingPage = () => {
       <section className="py-24 px-6 bg-gradient-to-b from-transparent to-[#0a0a0b] relative">
         <div className="max-w-6xl mx-auto">
           <div className="section-glass">
-            <h2 className="text-3xl sm:text-4xl font-bold text-center mb-16 brand-section-title scroll-reveal">
-              POWERED BY <span className="brand-gradient-text">PURELYLOGIC INTELLIGENCE</span>
-            </h2>
+            <div className="reveal-section">
+              <h2 className="text-3xl sm:text-4xl font-bold text-center mb-16 brand-section-title">
+                POWERED BY <span className="brand-gradient-text">PURELYLOGIC INTELLIGENCE</span>
+              </h2>
+            </div>
             
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-              <div className="glass-panel-brand p-6 sm:p-8 text-center scroll-reveal" style={{animationDelay: '0.1s'}}>
+              <div className="glass-panel-brand p-6 sm:p-8 text-center reveal-section">
                 <Shield className="w-10 h-10 sm:w-12 sm:h-12 text-[#4CAF50] mx-auto mb-4" />
                 <h3 className="text-lg sm:text-xl font-bold mb-2">FORGE INTEGRATION</h3>
                 <p className="text-gray-400 text-xs sm:text-sm">Enterprise-grade analytics engine</p>
               </div>
 
-              <div className="glass-panel-brand p-6 sm:p-8 text-center scroll-reveal" style={{animationDelay: '0.2s'}}>
+              <div className="glass-panel-brand p-6 sm:p-8 text-center reveal-section">
                 <BarChart3 className="w-10 h-10 sm:w-12 sm:h-12 text-[#4CAF50] mx-auto mb-4" />
                 <h3 className="text-lg sm:text-xl font-bold mb-2">CLAUDE ASSISTANT</h3>
                 <p className="text-gray-400 text-xs sm:text-sm">AI-powered recommendations</p>
               </div>
 
-              <div className="glass-panel-brand p-6 sm:p-8 text-center scroll-reveal" style={{animationDelay: '0.3s'}}>
+              <div className="glass-panel-brand p-6 sm:p-8 text-center reveal-section">
                 <Sparkles className="w-10 h-10 sm:w-12 sm:h-12 text-[#4CAF50] mx-auto mb-4" />
                 <h3 className="text-lg sm:text-xl font-bold mb-2">PURELYLOGIC API</h3>
                 <p className="text-gray-400 text-xs sm:text-sm">Real-time optimization insights</p>
