@@ -28,6 +28,9 @@ app = FastAPI()
 # Create a router with the /api prefix
 api_router = APIRouter(prefix="/api")
 
+# Initialize audit engine
+audit_engine = AuditEngine()
+
 
 # Define Models
 class AuditRequest(BaseModel):
