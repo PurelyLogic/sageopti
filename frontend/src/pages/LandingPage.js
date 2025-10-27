@@ -29,6 +29,9 @@ const LandingPage = () => {
         {/* Deepened Hero Background */}
         <div className="hero-background-deep"></div>
         
+        {/* Background Vignette for Cinematic Depth */}
+        <div className="hero-vignette"></div>
+        
         {/* Background Gradient Overlay */}
         <div className="brand-gradient-overlay"></div>
 
