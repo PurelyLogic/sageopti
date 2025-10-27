@@ -63,7 +63,7 @@ const LandingPage = () => {
             MEET SAGE
           </h1>
           
-          <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold mb-5 fade-in-up delay-300 shimmer-headline">
+          <h2 className="official-tagline hero-tagline mb-5">
             Optimizing All Engines.
           </h2>
           
