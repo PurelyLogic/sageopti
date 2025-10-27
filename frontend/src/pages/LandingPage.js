@@ -66,6 +66,7 @@ const LandingPage = () => {
         <div className="relative z-10 text-center max-w-5xl">
           {/* Enhanced Master SAGE Logo */}
           <div className="mb-8 logo-container-enhanced">
+            <div className="logo-black-shadow"></div>
             <div className="logo-ambient-shadow"></div>
             <div className="logo-radial-glow"></div>
             <img 
