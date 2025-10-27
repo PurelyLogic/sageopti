@@ -26,6 +26,9 @@ const LandingPage = () => {
     <div className="min-h-screen bg-[#0f0f10] landing-page">
       {/* Hero Section */}
       <section className="relative min-h-screen flex flex-col items-center justify-center px-6 overflow-hidden" ref={heroRef}>
+        {/* Deepened Hero Background */}
+        <div className="hero-background-deep"></div>
+        
         {/* Background Gradient Overlay */}
         <div className="brand-gradient-overlay"></div>
 
@@ -43,18 +46,29 @@ const LandingPage = () => {
           <div className="particle-dot"></div>
         </div>
 
+        {/* Enhanced Energy Particle Field */}
+        <div className="particle-field">
+          <div className="energy-particle"></div>
+          <div className="energy-particle"></div>
+          <div className="energy-particle"></div>
+          <div className="energy-particle"></div>
+          <div className="energy-particle"></div>
+        </div>
+
         {/* Animated Glow Effect */}
         <div className="glow-container-brand">
           <div className="glow-ring-brand"></div>
         </div>
 
         <div className="relative z-10 text-center max-w-5xl">
-          {/* Master SAGE Logo */}
-          <div className="mb-8 scale-in">
+          {/* Enhanced Master SAGE Logo */}
+          <div className="mb-8 logo-container-enhanced">
+            <div className="logo-ambient-shadow"></div>
+            <div className="logo-radial-glow"></div>
             <img 
               src="https://customer-assets.emergentagent.com/job_seo-aeo-geo/artifacts/w0rrqvvn_Master_SAGE%20logo.png" 
               alt="SAGE Logo" 
-              className="mx-auto w-64 sm:w-80 md:w-96 lg:w-[512px] xl:w-[600px] h-auto max-w-full"
+              className="mx-auto w-64 sm:w-80 md:w-96 lg:w-[512px] xl:w-[600px] h-auto max-w-full logo-enhanced"
               data-testid="sage-logo"
             />
           </div>
