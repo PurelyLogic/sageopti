@@ -526,7 +526,21 @@ const LandingPage = () => {
                     </div>
                     <div className="flex justify-between items-center py-2 border-b border-[#00BFB3]/10">
                       <span className="text-sm text-gray-300">GEO Sync</span>
-                      {idx >= 2 ? <CheckCircle className="w-5 h-5 text-[#00BFB3]" /> : <span className="text-gray-600">×</span>}
+                      {idx === 0 ? (
+                        <span className="text-gray-600">×</span>
+                      ) : idx === 1 ? (
+                        <div className="flex flex-col items-end">
+                          <CheckCircle className="w-5 h-5 text-[#00BFB3]" />
+                          <span className="text-xs text-gray-400">(Lite)</span>
+                        </div>
+                      ) : idx === 2 ? (
+                        <div className="flex flex-col items-end">
+                          <CheckCircle className="w-5 h-5 text-[#00BFB3]" />
+                          <span className="text-xs text-gray-400">(Full)</span>
+                        </div>
+                      ) : (
+                        <CheckCircle className="w-5 h-5 text-[#00BFB3]" />
+                      )}
                     </div>
                     <div className="flex justify-between items-center py-2 border-b border-[#00BFB3]/10">
                       <span className="text-sm text-gray-300">Monthly AI Reports</span>
@@ -534,7 +548,19 @@ const LandingPage = () => {
                     </div>
                     <div className="flex justify-between items-center py-2 border-b border-[#00BFB3]/10">
                       <span className="text-sm text-gray-300">Multi-Location</span>
-                      {idx === 3 ? <CheckCircle className="w-5 h-5 text-[#00BFB3]" /> : <span className="text-gray-600">×</span>}
+                      {idx === 0 || idx === 1 ? (
+                        <span className="text-gray-600">×</span>
+                      ) : idx === 2 ? (
+                        <div className="flex flex-col items-end">
+                          <CheckCircle className="w-5 h-5 text-[#00BFB3]" />
+                          <span className="text-xs text-gray-400">(Up to 5)</span>
+                        </div>
+                      ) : (
+                        <div className="flex flex-col items-end">
+                          <CheckCircle className="w-5 h-5 text-[#00BFB3]" />
+                          <span className="text-xs text-gray-400">(Unlimited)</span>
+                        </div>
+                      )}
                     </div>
                     <div className="flex justify-between items-center py-2">
                       <span className="text-sm text-gray-300">White Label</span>
