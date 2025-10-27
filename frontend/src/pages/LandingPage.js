@@ -157,6 +157,78 @@ const LandingPage = () => {
         </div>
       </section>
 
+      {/* What Happens When You Run a Free Audit Section */}
+      <section className="py-32 px-6 relative">
+        <div className="max-w-5xl mx-auto">
+          {/* Soft Gradient Divider Top */}
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00BFB3] to-transparent opacity-30"></div>
+          
+          <div className="reveal-section text-center">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-8 brand-section-title">
+              See How <span className="brand-gradient-text">SAGE Works</span> for You.
+            </h2>
+            
+            <p className="text-lg sm:text-xl text-gray-300 leading-relaxed mb-16 max-w-4xl mx-auto">
+              When you run a free audit, SAGE scans your online presence across Search, Answer, and Map engines — identifying how visible your business really is. 
+              It then builds a custom Optimization Blueprint powered by PurelyLogic Intelligence and FORGE automation, revealing exactly how to improve visibility and drive real results.
+            </p>
+          </div>
+
+          {/* 3-Step Process */}
+          <div className="grid md:grid-cols-3 gap-8 lg:gap-12 mb-16">
+            {/* Step 1: Discover */}
+            <div className="reveal-section glass-panel-brand p-8 text-center" style={{animationDelay: '0.1s'}}>
+              <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-[#0A3D62] to-[#00BFB3] flex items-center justify-center">
+                <Search className="w-10 h-10 text-white" />
+              </div>
+              <div className="text-6xl font-bold text-[#00BFB3] mb-4">01</div>
+              <h3 className="text-2xl font-bold mb-3">Discover</h3>
+              <p className="text-gray-400">
+                Instant visibility audit across all engines.
+              </p>
+            </div>
+
+            {/* Step 2: Analyze */}
+            <div className="reveal-section glass-panel-brand p-8 text-center" style={{animationDelay: '0.2s'}}>
+              <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-[#0A3D62] to-[#00BFB3] flex items-center justify-center">
+                <BarChart3 className="w-10 h-10 text-white" />
+              </div>
+              <div className="text-6xl font-bold text-[#00BFB3] mb-4">02</div>
+              <h3 className="text-2xl font-bold mb-3">Analyze</h3>
+              <p className="text-gray-400">
+                AI identifies missing opportunities.
+              </p>
+            </div>
+
+            {/* Step 3: Optimize */}
+            <div className="reveal-section glass-panel-brand p-8 text-center" style={{animationDelay: '0.3s'}}>
+              <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-[#0A3D62] to-[#00BFB3] flex items-center justify-center">
+                <Sparkles className="w-10 h-10 text-white" />
+              </div>
+              <div className="text-6xl font-bold text-[#00BFB3] mb-4">03</div>
+              <h3 className="text-2xl font-bold mb-3">Optimize</h3>
+              <p className="text-gray-400">
+                FORGE automation applies improvements.
+              </p>
+            </div>
+          </div>
+
+          {/* CTA Button */}
+          <div className="reveal-section text-center" style={{animationDelay: '0.4s'}}>
+            <button 
+              onClick={() => navigate('/audit')}
+              className="btn-primary-brand text-lg px-12 py-4"
+              data-testid="audit-section-cta"
+            >
+              Run Your Free Audit
+            </button>
+          </div>
+
+          {/* Soft Gradient Divider Bottom */}
+          <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00BFB3] to-transparent opacity-30"></div>
+        </div>
+      </section>
+
       {/* Integration Placeholders */}
       <section className="py-24 px-6 bg-gradient-to-b from-transparent to-[#0a0a0b] relative">
         <div className="max-w-6xl mx-auto">
