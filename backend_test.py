@@ -292,7 +292,7 @@ class SAGEBackendTester:
             # Test 2: Real Audit Endpoints
             test_urls = [
                 ("example.com", "Simple Static Site"),
-                ("https://www.google.com", "HTTPS URL"),
+                ("https://httpbin.org", "HTTPS URL"),
                 ("https://www.amazon.com", "Complex Site")
             ]
             
