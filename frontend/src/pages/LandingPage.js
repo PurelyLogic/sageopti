@@ -263,7 +263,292 @@ const LandingPage = () => {
       </section>
 
       {/* Pricing Section */}
-      <PricingTiers />
+      <section className="py-32 px-6 relative">
+        <div className="max-w-7xl mx-auto">
+          {/* Soft Gradient Divider Top */}
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00BFB3] to-transparent opacity-30"></div>
+          
+          <div className="reveal-section text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 brand-section-title">
+              Plans That <span className="brand-gradient-text">Scale With You</span>.
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
+              Whether you're optimizing one business or a full client portfolio, SAGE adapts to your goals.
+            </p>
+          </div>
+
+          {/* Pricing Grid with Equal Heights */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mb-20 auto-rows-fr">
+            {/* Free Plan */}
+            <div className="reveal-section h-full flex flex-col justify-between glass-panel-brand p-6 relative" style={{animationDelay: '0.1s'}}>
+              <div className="flex flex-col h-full">
+                <div className="text-center">
+                  <h3 className="text-2xl font-bold mb-2">Free</h3>
+                  <p className="text-gray-400 text-sm mb-6">SEO Audit only</p>
+                  <div className="mb-6">
+                    <span className="text-5xl font-bold text-[#00BFB3]">$0</span>
+                  </div>
+                </div>
+                <div className="flex-1"></div>
+                <div className="mt-auto">
+                  <button 
+                    onClick={() => navigate('/audit')}
+                    className="w-full btn-secondary-brand text-sm py-3"
+                    data-testid="free-plan-cta"
+                  >
+                    Run Free Audit
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* SAGE Pro - Recommended */}
+            <div className="reveal-section h-full flex flex-col justify-between relative" style={{animationDelay: '0.2s'}}>
+              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-[#0A3D62] to-[#00BFB3] text-white px-4 py-1 rounded-full text-xs font-bold z-10">
+                RECOMMENDED
+              </div>
+              <div className="glass-panel-brand p-6 h-full flex flex-col justify-between border-2 border-[#00BFB3] shadow-lg shadow-[#00BFB3]/20">
+                <div className="flex flex-col h-full">
+                  <div className="text-center">
+                    <h3 className="text-2xl font-bold mb-2">SAGE Pro</h3>
+                    <p className="text-gray-400 text-sm mb-6">SEO + AEO Optimization</p>
+                    <div className="mb-6">
+                      <span className="text-5xl font-bold text-[#00BFB3]">$99</span>
+                      <span className="text-gray-400">/mo</span>
+                    </div>
+                  </div>
+                  <div className="flex-1"></div>
+                  <div className="mt-auto">
+                    <button 
+                      className="w-full btn-primary-brand text-sm py-3"
+                      data-testid="pro-plan-cta"
+                    >
+                      Upgrade to Pro
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* SAGE GEO */}
+            <div className="reveal-section h-full flex flex-col justify-between glass-panel-brand p-6 relative" style={{animationDelay: '0.3s'}}>
+              <div className="flex flex-col h-full">
+                <div className="text-center">
+                  <h3 className="text-2xl font-bold mb-2">SAGE GEO</h3>
+                  <p className="text-gray-400 text-sm mb-6">SEO + AEO + GEO</p>
+                  <div className="mb-6">
+                    <span className="text-5xl font-bold text-[#00BFB3]">$299</span>
+                    <span className="text-gray-400">/mo</span>
+                  </div>
+                </div>
+                <div className="flex-1"></div>
+                <div className="mt-auto">
+                  <button 
+                    className="w-full btn-primary-brand text-sm py-3"
+                    data-testid="geo-plan-cta"
+                  >
+                    Automate My Visibility
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Agency Plan */}
+            <div className="reveal-section h-full flex flex-col justify-between glass-panel-brand p-6 relative" style={{animationDelay: '0.4s'}}>
+              <div className="flex flex-col h-full">
+                <div className="text-center">
+                  <h3 className="text-2xl font-bold mb-2">Agency</h3>
+                  <p className="text-gray-400 text-sm mb-6">Multi-location + White Label</p>
+                  <div className="mb-6">
+                    <span className="text-3xl font-bold text-[#00BFB3]">Custom</span>
+                  </div>
+                </div>
+                <div className="flex-1"></div>
+                <div className="mt-auto">
+                  <button 
+                    className="w-full btn-secondary-brand text-sm py-3"
+                    data-testid="agency-plan-cta"
+                  >
+                    Contact Sales
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Small text under pricing */}
+          <div className="reveal-section text-center mb-20" style={{animationDelay: '0.5s'}}>
+            <p className="text-sm text-gray-400 max-w-2xl mx-auto">
+              Every plan is powered by PurelyLogic Intelligence — continuously optimizing all engines for your business.
+            </p>
+          </div>
+
+          {/* Comparison Table */}
+          <div className="reveal-section" style={{animationDelay: '0.6s'}}>
+            <h3 className="text-2xl sm:text-3xl font-bold text-center mb-12 brand-section-title">
+              Compare <span className="brand-gradient-text">Plans</span>
+            </h3>
+
+            {/* Desktop Table */}
+            <div className="hidden lg:block overflow-x-auto">
+              <table className="w-full border-collapse">
+                <thead>
+                  <tr className="border-b border-[#00BFB3]/20">
+                    <th className="text-left py-6 px-6 text-gray-400 font-semibold">Feature</th>
+                    <th className="text-center py-6 px-6 font-semibold">Free</th>
+                    <th className="text-center py-6 px-6 font-semibold bg-[#00BFB3]/5 border-x border-[#00BFB3]/30">
+                      SAGE Pro
+                    </th>
+                    <th className="text-center py-6 px-6 font-semibold">SAGE GEO</th>
+                    <th className="text-center py-6 px-6 font-semibold">Agency</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b border-[#00BFB3]/10">
+                    <td className="py-6 px-6 text-gray-300">SEO Audit</td>
+                    <td className="text-center py-6 px-6">
+                      <CheckCircle className="w-6 h-6 text-[#00BFB3] mx-auto" />
+                    </td>
+                    <td className="text-center py-6 px-6 bg-[#00BFB3]/5 border-x border-[#00BFB3]/30">
+                      <CheckCircle className="w-6 h-6 text-[#00BFB3] mx-auto" />
+                    </td>
+                    <td className="text-center py-6 px-6">
+                      <CheckCircle className="w-6 h-6 text-[#00BFB3] mx-auto" />
+                    </td>
+                    <td className="text-center py-6 px-6">
+                      <CheckCircle className="w-6 h-6 text-[#00BFB3] mx-auto" />
+                    </td>
+                  </tr>
+                  <tr className="border-b border-[#00BFB3]/10">
+                    <td className="py-6 px-6 text-gray-300">AEO Optimization</td>
+                    <td className="text-center py-6 px-6">
+                      <span className="text-gray-600 text-2xl">×</span>
+                    </td>
+                    <td className="text-center py-6 px-6 bg-[#00BFB3]/5 border-x border-[#00BFB3]/30">
+                      <CheckCircle className="w-6 h-6 text-[#00BFB3] mx-auto" />
+                    </td>
+                    <td className="text-center py-6 px-6">
+                      <CheckCircle className="w-6 h-6 text-[#00BFB3] mx-auto" />
+                    </td>
+                    <td className="text-center py-6 px-6">
+                      <CheckCircle className="w-6 h-6 text-[#00BFB3] mx-auto" />
+                    </td>
+                  </tr>
+                  <tr className="border-b border-[#00BFB3]/10">
+                    <td className="py-6 px-6 text-gray-300">GEO Sync & Local Rank Tracking</td>
+                    <td className="text-center py-6 px-6">
+                      <span className="text-gray-600 text-2xl">×</span>
+                    </td>
+                    <td className="text-center py-6 px-6 bg-[#00BFB3]/5 border-x border-[#00BFB3]/30">
+                      <span className="text-gray-600 text-2xl">×</span>
+                    </td>
+                    <td className="text-center py-6 px-6">
+                      <CheckCircle className="w-6 h-6 text-[#00BFB3] mx-auto" />
+                    </td>
+                    <td className="text-center py-6 px-6">
+                      <CheckCircle className="w-6 h-6 text-[#00BFB3] mx-auto" />
+                    </td>
+                  </tr>
+                  <tr className="border-b border-[#00BFB3]/10">
+                    <td className="py-6 px-6 text-gray-300">Monthly AI Reports</td>
+                    <td className="text-center py-6 px-6">
+                      <span className="text-gray-600 text-2xl">×</span>
+                    </td>
+                    <td className="text-center py-6 px-6 bg-[#00BFB3]/5 border-x border-[#00BFB3]/30">
+                      <CheckCircle className="w-6 h-6 text-[#00BFB3] mx-auto" />
+                    </td>
+                    <td className="text-center py-6 px-6">
+                      <CheckCircle className="w-6 h-6 text-[#00BFB3] mx-auto" />
+                    </td>
+                    <td className="text-center py-6 px-6">
+                      <CheckCircle className="w-6 h-6 text-[#00BFB3] mx-auto" />
+                    </td>
+                  </tr>
+                  <tr className="border-b border-[#00BFB3]/10">
+                    <td className="py-6 px-6 text-gray-300">Multi-Location Management</td>
+                    <td className="text-center py-6 px-6">
+                      <span className="text-gray-600 text-2xl">×</span>
+                    </td>
+                    <td className="text-center py-6 px-6 bg-[#00BFB3]/5 border-x border-[#00BFB3]/30">
+                      <span className="text-gray-600 text-2xl">×</span>
+                    </td>
+                    <td className="text-center py-6 px-6">
+                      <span className="text-gray-600 text-2xl">×</span>
+                    </td>
+                    <td className="text-center py-6 px-6">
+                      <CheckCircle className="w-6 h-6 text-[#00BFB3] mx-auto" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="py-6 px-6 text-gray-300">White Label Branding</td>
+                    <td className="text-center py-6 px-6">
+                      <span className="text-gray-600 text-2xl">×</span>
+                    </td>
+                    <td className="text-center py-6 px-6 bg-[#00BFB3]/5 border-x border-[#00BFB3]/30">
+                      <span className="text-gray-600 text-2xl">×</span>
+                    </td>
+                    <td className="text-center py-6 px-6">
+                      <span className="text-gray-600 text-2xl">×</span>
+                    </td>
+                    <td className="text-center py-6 px-6">
+                      <CheckCircle className="w-6 h-6 text-[#00BFB3] mx-auto" />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            {/* Mobile Comparison - Stacked Cards */}
+            <div className="lg:hidden space-y-6">
+              {['Free', 'SAGE Pro', 'SAGE GEO', 'Agency'].map((plan, idx) => (
+                <div key={plan} className={`glass-panel-brand p-6 ${plan === 'SAGE Pro' ? 'border-2 border-[#00BFB3]' : ''}`}>
+                  <h4 className="text-xl font-bold mb-4 text-center">{plan}</h4>
+                  <div className="space-y-3">
+                    <div className="flex justify-between items-center py-2 border-b border-[#00BFB3]/10">
+                      <span className="text-sm text-gray-300">SEO Audit</span>
+                      <CheckCircle className="w-5 h-5 text-[#00BFB3]" />
+                    </div>
+                    <div className="flex justify-between items-center py-2 border-b border-[#00BFB3]/10">
+                      <span className="text-sm text-gray-300">AEO Optimization</span>
+                      {idx === 0 ? <span className="text-gray-600">×</span> : <CheckCircle className="w-5 h-5 text-[#00BFB3]" />}
+                    </div>
+                    <div className="flex justify-between items-center py-2 border-b border-[#00BFB3]/10">
+                      <span className="text-sm text-gray-300">GEO Sync</span>
+                      {idx >= 2 ? <CheckCircle className="w-5 h-5 text-[#00BFB3]" /> : <span className="text-gray-600">×</span>}
+                    </div>
+                    <div className="flex justify-between items-center py-2 border-b border-[#00BFB3]/10">
+                      <span className="text-sm text-gray-300">Monthly AI Reports</span>
+                      {idx === 0 ? <span className="text-gray-600">×</span> : <CheckCircle className="w-5 h-5 text-[#00BFB3]" />}
+                    </div>
+                    <div className="flex justify-between items-center py-2 border-b border-[#00BFB3]/10">
+                      <span className="text-sm text-gray-300">Multi-Location</span>
+                      {idx === 3 ? <CheckCircle className="w-5 h-5 text-[#00BFB3]" /> : <span className="text-gray-600">×</span>}
+                    </div>
+                    <div className="flex justify-between items-center py-2">
+                      <span className="text-sm text-gray-300">White Label</span>
+                      {idx === 3 ? <CheckCircle className="w-5 h-5 text-[#00BFB3]" /> : <span className="text-gray-600">×</span>}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* CTA Below Table */}
+          <div className="reveal-section text-center mt-16" style={{animationDelay: '0.7s'}}>
+            <button 
+              onClick={() => navigate('/audit')}
+              className="btn-primary-brand text-lg px-12 py-4"
+              data-testid="compare-plans-cta"
+            >
+              Run Your Free Audit and See Which Plan Fits You Best
+            </button>
+          </div>
+
+          {/* Soft Gradient Divider Bottom */}
+          <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00BFB3] to-transparent opacity-30"></div>
+        </div>
+      </section>
 
       {/* Footer */}
       <footer className="py-8 px-6 border-t border-gray-800">
