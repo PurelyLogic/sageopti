@@ -77,9 +77,9 @@ const LandingPage = () => {
             MEET SAGE
           </h1>
           
-          <h2 className="official-tagline hero-tagline mb-5">
+          <div className="official-tagline hero-tagline mb-5 tagline-sweep-effect">
             Optimizing All Engines.
-          </h2>
+          </div>
           
           <p className="text-base sm:text-lg text-gray-400 mb-8 max-w-3xl mx-auto fade-in-up delay-400">
             Audit, Analyze, and Elevate your digital presence across Search, Answers, and Maps.
