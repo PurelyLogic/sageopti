@@ -48,6 +48,11 @@ class Audit(BaseModel):
     aeo_score: int
     geo_score: int
     recommendations: List[Recommendation]
+    status: str = "completed"
+    seo_details: Optional[Dict[str, Any]] = None
+    aeo_details: Optional[Dict[str, Any]] = None
+    geo_details: Optional[Dict[str, Any]] = None
+    error: Optional[str] = None
     timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
 
 
