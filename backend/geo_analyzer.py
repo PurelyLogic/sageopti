@@ -20,6 +20,10 @@ class GEOAnalyzer:
     async def analyze(self, url: str, html_content: str) -> Dict[str, Any]:
         """Analyze GEO aspects of the website"""
         try:
+            # Reset issues and strengths for each analysis
+            self.issues = []
+            self.strengths = []
+            
             soup = BeautifulSoup(html_content, 'lxml')
             domain = urlparse(url).netloc
             
