@@ -171,6 +171,12 @@ const Dashboard = () => {
             )}
           </div>
         </div>
+        
+        {/* Footer with Tagline */}
+        <footer className="mt-12 pt-8 border-t border-gray-800 text-center">
+          <p className="official-tagline compact-tagline">Optimizing All Engines.</p>
+          <p className="text-xs text-gray-500 mt-2">\u00a9 2025 PurelyLogic. All rights reserved.</p>
+        </footer>
       </main>
     </div>
   );
