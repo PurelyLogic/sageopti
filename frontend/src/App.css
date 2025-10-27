@@ -38,15 +38,28 @@ body {
   z-index: 1;
 }
 
-/* Deepened Hero Background */
+/* Deepened Hero Background with Gradient Motion */
 .hero-background-deep {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, #001F24 0%, #0A1A2F 50%, #001F24 100%);
+  background: linear-gradient(135deg, #001518 0%, #0A1A2F 50%, #001820 100%);
   z-index: 0;
+  animation: ambient-gradient-shift 12s ease-in-out infinite alternate;
+}
+
+@keyframes ambient-gradient-shift {
+  0% {
+    background: linear-gradient(135deg, #001518 0%, #0A1A2F 50%, #001820 100%);
+  }
+  50% {
+    background: linear-gradient(135deg, #001820 0%, #0D2535 50%, #001518 100%);
+  }
+  100% {
+    background: linear-gradient(135deg, #001518 0%, #0A1A2F 50%, #001820 100%);
+  }
 }
 
 /* Ambient Particles */
