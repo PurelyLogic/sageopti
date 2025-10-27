@@ -391,119 +391,126 @@ const LandingPage = () => {
 
             {/* Desktop Table */}
             <div className="hidden lg:block overflow-x-auto">
-              <table className="w-full border-collapse">
+              <table className="w-full border-collapse table-fixed">
+                <colgroup>
+                  <col className="w-[30%]" />
+                  <col className="w-[17.5%]" />
+                  <col className="w-[17.5%]" />
+                  <col className="w-[17.5%]" />
+                  <col className="w-[17.5%]" />
+                </colgroup>
                 <thead>
-                  <tr className="border-b border-[#00BFB3]/20">
+                  <tr className="border-b border-[#00BFB3]/30 bg-gradient-to-r from-[#0A3D62]/20 to-[#00BFB3]/20">
                     <th className="text-left py-6 px-6 text-gray-400 font-semibold">Feature</th>
-                    <th className="text-center py-6 px-6 font-semibold">Free</th>
-                    <th className="text-center py-6 px-6 font-semibold bg-[#00BFB3]/5 border-x border-[#00BFB3]/30">
+                    <th className="text-center py-6 px-6 font-semibold text-white">Free</th>
+                    <th className="text-center py-6 px-6 font-semibold text-white bg-[#00BFB3]/10 border-x border-[#00BFB3]/40">
                       SAGE Pro
                     </th>
-                    <th className="text-center py-6 px-6 font-semibold">SAGE GEO</th>
-                    <th className="text-center py-6 px-6 font-semibold">Agency</th>
+                    <th className="text-center py-6 px-6 font-semibold text-white">SAGE GEO</th>
+                    <th className="text-center py-6 px-6 font-semibold text-white">Agency</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr className="border-b border-[#00BFB3]/10">
+                  <tr className="border-b border-[#00BFB3]/10 hover:bg-[#00BFB3]/5 transition-colors">
                     <td className="py-6 px-6 text-gray-300">SEO Audit</td>
                     <td className="text-center py-6 px-6">
-                      <CheckCircle className="w-6 h-6 text-[#00BFB3] mx-auto" />
+                      <CheckCircle className="w-6 h-6 text-[#0EF6A7] mx-auto" />
                     </td>
                     <td className="text-center py-6 px-6 bg-[#00BFB3]/5 border-x border-[#00BFB3]/30">
-                      <CheckCircle className="w-6 h-6 text-[#00BFB3] mx-auto" />
+                      <CheckCircle className="w-6 h-6 text-[#0EF6A7] mx-auto" />
                     </td>
                     <td className="text-center py-6 px-6">
-                      <CheckCircle className="w-6 h-6 text-[#00BFB3] mx-auto" />
+                      <CheckCircle className="w-6 h-6 text-[#0EF6A7] mx-auto" />
                     </td>
                     <td className="text-center py-6 px-6">
-                      <CheckCircle className="w-6 h-6 text-[#00BFB3] mx-auto" />
+                      <CheckCircle className="w-6 h-6 text-[#0EF6A7] mx-auto" />
                     </td>
                   </tr>
-                  <tr className="border-b border-[#00BFB3]/10">
+                  <tr className="border-b border-[#00BFB3]/10 hover:bg-[#00BFB3]/5 transition-colors">
                     <td className="py-6 px-6 text-gray-300">AEO Optimization</td>
                     <td className="text-center py-6 px-6">
-                      <span className="text-gray-600 text-2xl">×</span>
+                      <span className="text-red-500/60 text-2xl">×</span>
                     </td>
                     <td className="text-center py-6 px-6 bg-[#00BFB3]/5 border-x border-[#00BFB3]/30">
-                      <CheckCircle className="w-6 h-6 text-[#00BFB3] mx-auto" />
+                      <CheckCircle className="w-6 h-6 text-[#0EF6A7] mx-auto" />
                     </td>
                     <td className="text-center py-6 px-6">
-                      <CheckCircle className="w-6 h-6 text-[#00BFB3] mx-auto" />
+                      <CheckCircle className="w-6 h-6 text-[#0EF6A7] mx-auto" />
                     </td>
                     <td className="text-center py-6 px-6">
-                      <CheckCircle className="w-6 h-6 text-[#00BFB3] mx-auto" />
+                      <CheckCircle className="w-6 h-6 text-[#0EF6A7] mx-auto" />
                     </td>
                   </tr>
-                  <tr className="border-b border-[#00BFB3]/10">
+                  <tr className="border-b border-[#00BFB3]/10 hover:bg-[#00BFB3]/5 transition-colors">
                     <td className="py-6 px-6 text-gray-300">GEO Sync & Local Rank Tracking</td>
                     <td className="text-center py-6 px-6">
-                      <span className="text-gray-600 text-2xl">×</span>
+                      <span className="text-red-500/60 text-2xl">×</span>
                     </td>
                     <td className="text-center py-6 px-6 bg-[#00BFB3]/5 border-x border-[#00BFB3]/30">
                       <div className="flex flex-col items-center">
-                        <CheckCircle className="w-6 h-6 text-[#00BFB3] mx-auto mb-1" />
-                        <span className="text-xs text-gray-400">(Lite Version)</span>
+                        <CheckCircle className="w-6 h-6 text-[#4CAF50] mx-auto mb-1" />
+                        <span className="text-xs text-teal-400">(Lite Version)</span>
                       </div>
                     </td>
                     <td className="text-center py-6 px-6">
                       <div className="flex flex-col items-center">
-                        <CheckCircle className="w-6 h-6 text-[#00BFB3] mx-auto mb-1" />
-                        <span className="text-xs text-gray-400">(Full Suite)</span>
+                        <CheckCircle className="w-6 h-6 text-[#0EF6A7] mx-auto mb-1" />
+                        <span className="text-xs text-emerald-400">(Full Suite)</span>
                       </div>
                     </td>
                     <td className="text-center py-6 px-6">
-                      <CheckCircle className="w-6 h-6 text-[#00BFB3] mx-auto" />
+                      <CheckCircle className="w-6 h-6 text-[#0EF6A7] mx-auto" />
                     </td>
                   </tr>
-                  <tr className="border-b border-[#00BFB3]/10">
+                  <tr className="border-b border-[#00BFB3]/10 hover:bg-[#00BFB3]/5 transition-colors">
                     <td className="py-6 px-6 text-gray-300">Monthly AI Reports</td>
                     <td className="text-center py-6 px-6">
-                      <span className="text-gray-600 text-2xl">×</span>
+                      <span className="text-red-500/60 text-2xl">×</span>
                     </td>
                     <td className="text-center py-6 px-6 bg-[#00BFB3]/5 border-x border-[#00BFB3]/30">
-                      <CheckCircle className="w-6 h-6 text-[#00BFB3] mx-auto" />
+                      <CheckCircle className="w-6 h-6 text-[#0EF6A7] mx-auto" />
                     </td>
                     <td className="text-center py-6 px-6">
-                      <CheckCircle className="w-6 h-6 text-[#00BFB3] mx-auto" />
+                      <CheckCircle className="w-6 h-6 text-[#0EF6A7] mx-auto" />
                     </td>
                     <td className="text-center py-6 px-6">
-                      <CheckCircle className="w-6 h-6 text-[#00BFB3] mx-auto" />
+                      <CheckCircle className="w-6 h-6 text-[#0EF6A7] mx-auto" />
                     </td>
                   </tr>
-                  <tr className="border-b border-[#00BFB3]/10">
+                  <tr className="border-b border-[#00BFB3]/10 hover:bg-[#00BFB3]/5 transition-colors">
                     <td className="py-6 px-6 text-gray-300">Multi-Location Management</td>
                     <td className="text-center py-6 px-6">
-                      <span className="text-gray-600 text-2xl">×</span>
+                      <span className="text-red-500/60 text-2xl">×</span>
                     </td>
                     <td className="text-center py-6 px-6 bg-[#00BFB3]/5 border-x border-[#00BFB3]/30">
-                      <span className="text-gray-600 text-2xl">×</span>
+                      <span className="text-red-500/60 text-2xl">×</span>
                     </td>
                     <td className="text-center py-6 px-6">
                       <div className="flex flex-col items-center">
-                        <CheckCircle className="w-6 h-6 text-[#00BFB3] mx-auto mb-1" />
-                        <span className="text-xs text-gray-400">(Up to 5 locations)</span>
+                        <CheckCircle className="w-6 h-6 text-[#4CAF50] mx-auto mb-1" />
+                        <span className="text-xs text-teal-400">(Up to 5 locations)</span>
                       </div>
                     </td>
                     <td className="text-center py-6 px-6">
                       <div className="flex flex-col items-center">
-                        <CheckCircle className="w-6 h-6 text-[#00BFB3] mx-auto mb-1" />
-                        <span className="text-xs text-gray-400">(Unlimited)</span>
+                        <CheckCircle className="w-6 h-6 text-[#0EF6A7] mx-auto mb-1" />
+                        <span className="text-xs text-emerald-400">(Unlimited)</span>
                       </div>
                     </td>
                   </tr>
-                  <tr>
+                  <tr className="hover:bg-[#00BFB3]/5 transition-colors">
                     <td className="py-6 px-6 text-gray-300">White Label Branding</td>
                     <td className="text-center py-6 px-6">
-                      <span className="text-gray-600 text-2xl">×</span>
+                      <span className="text-red-500/60 text-2xl">×</span>
                     </td>
                     <td className="text-center py-6 px-6 bg-[#00BFB3]/5 border-x border-[#00BFB3]/30">
-                      <span className="text-gray-600 text-2xl">×</span>
+                      <span className="text-red-500/60 text-2xl">×</span>
                     </td>
                     <td className="text-center py-6 px-6">
-                      <span className="text-gray-600 text-2xl">×</span>
+                      <span className="text-red-500/60 text-2xl">×</span>
                     </td>
                     <td className="text-center py-6 px-6">
-                      <CheckCircle className="w-6 h-6 text-[#00BFB3] mx-auto" />
+                      <CheckCircle className="w-6 h-6 text-[#0EF6A7] mx-auto" />
                     </td>
                   </tr>
                 </tbody>
