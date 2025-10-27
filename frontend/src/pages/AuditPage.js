@@ -107,6 +107,13 @@ const AuditPage = () => {
         {/* Results */}
         {auditResult && (
           <div className="space-y-8">
+            {/* Completion Message with Tagline */}
+            <div className="glass-panel p-6 text-center">
+              <CheckCircle className="w-16 h-16 text-[#00BFB3] mx-auto mb-4" />
+              <h2 className="text-2xl font-bold mb-2">Audit Complete!</h2>
+              <p className="official-tagline completion-tagline">Optimizing All Engines.</p>
+            </div>
+            
             {/* Score Cards */}
             <div>
               <h2 className="text-2xl font-bold mb-4">Optimization Scores</h2>
