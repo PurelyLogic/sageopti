@@ -440,10 +440,16 @@ const LandingPage = () => {
                       <span className="text-gray-600 text-2xl">×</span>
                     </td>
                     <td className="text-center py-6 px-6 bg-[#00BFB3]/5 border-x border-[#00BFB3]/30">
-                      <span className="text-gray-600 text-2xl">×</span>
+                      <div className="flex flex-col items-center">
+                        <CheckCircle className="w-6 h-6 text-[#00BFB3] mx-auto mb-1" />
+                        <span className="text-xs text-gray-400">(Lite Version)</span>
+                      </div>
                     </td>
                     <td className="text-center py-6 px-6">
-                      <CheckCircle className="w-6 h-6 text-[#00BFB3] mx-auto" />
+                      <div className="flex flex-col items-center">
+                        <CheckCircle className="w-6 h-6 text-[#00BFB3] mx-auto mb-1" />
+                        <span className="text-xs text-gray-400">(Full Suite)</span>
+                      </div>
                     </td>
                     <td className="text-center py-6 px-6">
                       <CheckCircle className="w-6 h-6 text-[#00BFB3] mx-auto" />
