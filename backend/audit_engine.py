@@ -100,7 +100,7 @@ class AuditEngine:
                     soup = BeautifulSoup(response.text, 'lxml')
                     text_content = soup.get_text(strip=True)
                     
-                    if len(text_content) > 500:  # Has reasonable content
+                    if len(text_content) > 50:  # Has reasonable content (lowered threshold)
                         logger.info("Static fetch successful")
                         return response.text
             except Exception as e:
