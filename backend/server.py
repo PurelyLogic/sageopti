@@ -120,16 +120,39 @@ async def root():
 
 @api_router.post("/audit", response_model=Audit)
 async def create_audit(request: AuditRequest):
-    """Run a website audit and return scores with recommendations"""
-    audit_data = generate_mock_audit(request.url)
-    audit_obj = Audit(**audit_data)
-    
-    # Store in database
-    doc = audit_obj.model_dump()
-    doc['timestamp'] = doc['timestamp'].isoformat()
-    
-    await db.audits.insert_one(doc)
-    return audit_obj
+    """Run a real website audit and return scores with AI-powered recommendations"""
+    try:
+        # Run the audit
+        logger.info(f"Starting audit for: {request.url}")
+        audit_results = await audit_engine.run_audit(request.url)
+        
+        # Create audit object
+        audit_obj = Audit(
+            url=audit_results['url'],
+            seo_score=audit_results['seo_score'],
+            aeo_score=audit_results['aeo_score'],
+            geo_score=audit_results['geo_score'],
+            recommendations=audit_results.get('recommendations', []),
+            status=audit_results.get('status', 'completed'),
+            seo_details=audit_results.get('seo_details'),
+            aeo_details=audit_results.get('aeo_details'),
+            geo_details=audit_results.get('geo_details'),
+            error=audit_results.get('error')
+        )
+        
+        # Store in database
+        doc = audit_obj.model_dump()
+        doc['timestamp'] = doc['timestamp'].isoformat()
+        
+        await db.audits.insert_one(doc)
+        
+        logger.info(f"Audit completed for {request.url}: SEO={audit_obj.seo_score}, AEO={audit_obj.aeo_score}, GEO={audit_obj.geo_score}")
+        
+        return audit_obj
+        
+    except Exception as e:
+        logger.error(f"Audit endpoint error: {e}")
+        raise HTTPException(status_code=500, detail=f"Audit failed: {str(e)}")
 
 @api_router.get("/audits", response_model=List[Audit])
 async def get_audits():
