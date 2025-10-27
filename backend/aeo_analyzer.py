@@ -20,6 +20,10 @@ class AEOAnalyzer:
     async def analyze(self, url: str, html_content: str) -> Dict[str, Any]:
         """Analyze AEO aspects of the website"""
         try:
+            # Reset issues and strengths for each analysis
+            self.issues = []
+            self.strengths = []
+            
             soup = BeautifulSoup(html_content, 'lxml')
             
             # Analyze various AEO factors
