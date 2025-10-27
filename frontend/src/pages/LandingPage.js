@@ -73,11 +73,11 @@ const LandingPage = () => {
             />
           </div>
           
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight mb-5 brand-title fade-in-up delay-200">
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight mb-6 brand-title fade-in-up delay-200">
             MEET SAGE
           </h1>
           
-          <div className="official-tagline hero-tagline mb-5 tagline-sweep-effect">
+          <div className="official-tagline hero-tagline mb-8 tagline-sweep-effect fade-in-up delay-300" data-testid="hero-tagline">
             Optimizing All Engines.
           </div>
           
