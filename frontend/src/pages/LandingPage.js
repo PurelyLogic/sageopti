@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { Sparkles, TrendingUp, MapPin, Zap, Shield, BarChart3 } from "lucide-react";
+import { Sparkles, TrendingUp, MapPin, Zap, Shield, BarChart3, Search } from "lucide-react";
 
 const LandingPage = () => {
   const navigate = useNavigate();
