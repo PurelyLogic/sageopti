@@ -487,7 +487,7 @@ const LandingPage = () => {
                     <td className="text-center py-6 px-6">
                       <div className="flex flex-col items-center">
                         <CheckCircle className="w-6 h-6 text-[#00BFB3] mx-auto mb-1" />
-                        <span className="text-xs text-gray-400">(Unlimited + White-Label)</span>
+                        <span className="text-xs text-gray-400">(Unlimited)</span>
                       </div>
                     </td>
                   </tr>
