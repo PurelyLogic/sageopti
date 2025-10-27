@@ -26,16 +26,27 @@ body {
   --brand-gradient: linear-gradient(to right, #0A3D62, #4CAF50);
 }
 
-/* Background Gradient Overlay */
+/* Enhanced Background Gradient Overlay */
 .brand-gradient-overlay {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(10, 61, 98, 0.3) 0%, rgba(76, 175, 80, 0.3) 100%);
+  background: linear-gradient(135deg, rgba(10, 61, 98, 0.38) 0%, rgba(76, 175, 80, 0.35) 100%);
   pointer-events: none;
   z-index: 1;
+}
+
+/* Deepened Hero Background */
+.hero-background-deep {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #001F24 0%, #0A1A2F 50%, #001F24 100%);
+  z-index: 0;
 }
 
 /* Ambient Particles */
@@ -58,6 +69,49 @@ body {
   border-radius: 50%;
   box-shadow: 0 0 10px rgba(76, 175, 80, 0.8);
   animation: particle-drift 20s linear infinite;
+}
+
+/* Enhanced Particle Field */
+.particle-field {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.08;
+}
+
+.energy-particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: #00FFF0;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #00FFF0;
+  animation: energy-drift 15s ease-in-out infinite;
+}
+
+@keyframes energy-drift {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate(80px, -400px) scale(1.5);
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: translate(160px, -800px) scale(0.5);
+    opacity: 0;
+  }
 }
 
 @keyframes particle-drift {
@@ -88,6 +142,95 @@ body {
 .particle-dot:nth-child(9) { left: 90%; animation-delay: 1.5s; animation-duration: 29s; }
 .particle-dot:nth-child(10) { left: 15%; animation-delay: 6s; animation-duration: 21s; }
 
+.energy-particle:nth-child(1) { left: 15%; top: 20%; animation-delay: 0s; animation-duration: 18s; }
+.energy-particle:nth-child(2) { left: 35%; top: 40%; animation-delay: 3s; animation-duration: 16s; }
+.energy-particle:nth-child(3) { left: 55%; top: 30%; animation-delay: 6s; animation-duration: 20s; }
+.energy-particle:nth-child(4) { left: 75%; top: 50%; animation-delay: 2s; animation-duration: 17s; }
+.energy-particle:nth-child(5) { left: 25%; top: 60%; animation-delay: 5s; animation-duration: 19s; }
+
+/* Enhanced Logo Container */
+.logo-container-enhanced {
+  position: relative;
+  display: inline-block;
+  will-change: transform;
+  animation: logo-entrance 1s ease-out forwards;
+}
+
+@keyframes logo-entrance {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Logo Radial Glow Background */
+.logo-radial-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 140%;
+  height: 140%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle at center, rgba(0, 191, 179, 0.4) 0%, rgba(0, 31, 36, 0.8) 70%, transparent 100%);
+  filter: blur(70px);
+  z-index: -1;
+  animation: glow-pulse-sync 5s ease-in-out infinite;
+  will-change: opacity, transform;
+}
+
+@keyframes glow-pulse-sync {
+  0%, 100% {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+}
+
+/* Logo Ambient Shadow */
+.logo-ambient-shadow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 110%;
+  height: 110%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 191, 179, 0.25);
+  filter: blur(75px);
+  z-index: -2;
+  animation: shadow-pulse 5s ease-in-out infinite;
+}
+
+@keyframes shadow-pulse {
+  0%, 100% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+/* Enhanced Logo with Scale and 3D Depth */
+.logo-enhanced {
+  position: relative;
+  display: block;
+  transform: scale(1.12) translateY(-5%);
+  filter: drop-shadow(0 3px 8px rgba(0, 191, 179, 0.3)) 
+          drop-shadow(0 -1px 2px rgba(255, 255, 255, 0.1));
+  transition: transform 0.3s ease;
+  will-change: transform;
+}
+
+.logo-enhanced:hover {
+  transform: scale(1.15) translateY(-5%);
+}
+
 /* Animated Glow Effect - Brand Colors */
 @keyframes orbit-glow-brand {
   0% {
@@ -106,7 +249,7 @@ body {
     opacity: 0.3;
   }
   50% {
-    opacity: 0.5;
+    opacity: 0.55;
   }
 }
 
@@ -116,7 +259,7 @@ body {
   left: 50%;
   width: 700px;
   height: 700px;
-  transform: translate(-50%, -50());
+  transform: translate(-50%, -50%);
   pointer-events: none;
   z-index: 0;
 }
@@ -183,10 +326,28 @@ body {
 .delay-500 { animation-delay: 0.5s; opacity: 0; }
 .delay-600 { animation-delay: 0.6s; opacity: 0; }
 
-/* Official Tagline Animation */
+/* Enhanced Tagline with Light Sweep */
+@keyframes tagline-sweep {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes keyword-flare {
+  0%, 100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.25);
+  }
+}
+
 @keyframes tagline-pulse {
   0%, 100% {
-    opacity: 0.85;
+    opacity: 0.9;
     text-shadow: 0 0 20px rgba(0, 191, 179, 0.5);
   }
   50% {
@@ -198,10 +359,34 @@ body {
 .official-tagline {
   font-family: 'Inter', sans-serif;
   font-weight: 700;
-  color: #00BFB3;
+  color: #ffffff;
+  text-shadow: 0 0 8px rgba(0, 255, 240, 0.4),
+               0 2px 4px rgba(0, 0, 0, 0.3);
   animation: fadeIn 1.2s ease-out 0.6s forwards, tagline-pulse 5s ease-in-out infinite;
   opacity: 0;
   letter-spacing: 0.02em;
+  position: relative;
+  will-change: opacity, filter;
+}
+
+/* Tagline Light Sweep Effect */
+.tagline-sweep-effect {
+  position: relative;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    transparent 40%,
+    rgba(0, 255, 240, 0.3) 48%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(0, 255, 240, 0.3) 52%,
+    transparent 60%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: tagline-sweep 7s linear infinite;
+  mix-blend-mode: lighten;
 }
 
 /* Hero Tagline - Large */
@@ -220,27 +405,6 @@ body {
 .completion-tagline {
   font-size: 1.5rem;
   line-height: 1.4;
-}
-
-/* Shimmer Animation for Headline (keeping old one for backward compatibility) */
-@keyframes shimmer {
-  0% {
-    background-position: 0% center;
-  }
-  100% {
-    background-position: 200% center;
-  }
-}
-
-.shimmer-headline {
-  background: linear-gradient(90deg, #00B3A4 0%, #0EF6A7 50%, #00B3A4 100%);
-  background-size: 200% auto;
-  color: transparent;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: shimmer 6s linear infinite;
-  text-shadow: 0 0 12px rgba(14, 246, 167, 0.4);
 }
 
 /* Scroll Reveal Sections */
@@ -547,6 +711,27 @@ body {
   background-clip: text;
 }
 
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .logo-radial-glow,
+  .glow-ring-brand,
+  .tagline-sweep-effect {
+    animation: none !important;
+  }
+  
+  .logo-radial-glow {
+    opacity: 0.7 !important;
+  }
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .brand-title {
@@ -563,6 +748,10 @@ body {
   
   .compact-tagline {
     font-size: 0.95rem;
+  }
+  
+  .logo-enhanced {
+    transform: scale(1.08) translateY(-3%);
   }
   
   .score-card-brand,
@@ -596,5 +785,9 @@ body {
   
   .compact-tagline {
     font-size: 0.85rem;
+  }
+  
+  .logo-enhanced {
+    transform: scale(1.05) translateY(-2%);
   }
 }
