@@ -57,24 +57,24 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url('/sage-hero-full.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  opacity: 0.4;
+  background: linear-gradient(135deg, #0a1f1a 0%, #102c28 50%, #0a1f1a 100%);
   z-index: 0;
-  filter: blur(2px);
 }
 
-.hero-background-image::after {
+.hero-background-image::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, #0a1f1a 0%, rgba(16, 44, 40, 0.8) 50%, #0a1f1a 100%);
-  z-index: 1;
+  background-image: url('/sage-hero-full.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.15;
+  z-index: 0;
+  filter: blur(3px);
 }
 
 @keyframes ambient-gradient-shift {
