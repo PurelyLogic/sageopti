@@ -281,7 +281,14 @@ const LandingPage = () => {
           {/* Pricing Grid with Equal Heights */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mb-20 auto-rows-fr">
             {/* Free Plan */}
-            <div className="reveal-section h-full flex flex-col justify-between glass-panel-brand p-6 relative" style={{animationDelay: '0.1s'}}>
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
+              className="h-full flex flex-col justify-between glass-panel-brand p-6 relative"
+            >
               <div className="flex flex-col h-full">
                 <div className="text-center">
                   <h3 className="text-2xl font-bold mb-2">Free</h3>
@@ -292,19 +299,28 @@ const LandingPage = () => {
                 </div>
                 <div className="flex-1"></div>
                 <div className="mt-auto">
-                  <button 
+                  <motion.button 
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
                     onClick={() => navigate('/audit')}
                     className="w-full btn-secondary-brand text-sm py-3"
                     data-testid="free-plan-cta"
                   >
                     Run Free Audit
-                  </button>
+                  </motion.button>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* SAGE Pro - Recommended */}
-            <div className="reveal-section h-full flex flex-col justify-between relative" style={{animationDelay: '0.2s'}}>
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
+              className="h-full flex flex-col justify-between relative"
+            >
               <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-[#0A3D62] to-[#00BFB3] text-white px-4 py-1 rounded-full text-xs font-bold z-10">
                 RECOMMENDED
               </div>
@@ -320,19 +336,28 @@ const LandingPage = () => {
                   </div>
                   <div className="flex-1"></div>
                   <div className="mt-auto">
-                    <button 
+                    <motion.button 
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
                       className="w-full btn-primary-brand text-sm py-3"
                       data-testid="pro-plan-cta"
                     >
                       Upgrade to Pro
-                    </button>
+                    </motion.button>
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* SAGE GEO */}
-            <div className="reveal-section h-full flex flex-col justify-between glass-panel-brand p-6 relative" style={{animationDelay: '0.3s'}}>
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
+              className="h-full flex flex-col justify-between glass-panel-brand p-6 relative"
+            >
               <div className="flex flex-col h-full">
                 <div className="text-center">
                   <h3 className="text-2xl font-bold mb-2">SAGE GEO</h3>
@@ -344,18 +369,27 @@ const LandingPage = () => {
                 </div>
                 <div className="flex-1"></div>
                 <div className="mt-auto">
-                  <button 
+                  <motion.button 
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
                     className="w-full btn-primary-brand text-sm py-3"
                     data-testid="geo-plan-cta"
                   >
                     Automate My Visibility
-                  </button>
+                  </motion.button>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Agency Plan */}
-            <div className="reveal-section h-full flex flex-col justify-between glass-panel-brand p-6 relative" style={{animationDelay: '0.4s'}}>
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
+              className="h-full flex flex-col justify-between glass-panel-brand p-6 relative"
+            >
               <div className="flex flex-col h-full">
                 <div className="text-center">
                   <h3 className="text-2xl font-bold mb-2">Agency</h3>
@@ -366,15 +400,17 @@ const LandingPage = () => {
                 </div>
                 <div className="flex-1"></div>
                 <div className="mt-auto">
-                  <button 
+                  <motion.button 
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
                     className="w-full btn-secondary-brand text-sm py-3"
                     data-testid="agency-plan-cta"
                   >
                     Contact Sales
-                  </button>
+                  </motion.button>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
 
           {/* Small text under pricing */}
