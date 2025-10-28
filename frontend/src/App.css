@@ -50,6 +50,33 @@ body {
   animation: ambient-gradient-shift 12s ease-in-out infinite alternate;
 }
 
+/* New Hero Background Image */
+.hero-background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/sage-hero-full.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.4;
+  z-index: 0;
+  filter: blur(2px);
+}
+
+.hero-background-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #0a1f1a 0%, rgba(16, 44, 40, 0.8) 50%, #0a1f1a 100%);
+  z-index: 1;
+}
+
 @keyframes ambient-gradient-shift {
   0% {
     background: linear-gradient(135deg, #0a1f1a 0%, #102c28 50%, #0a1f1a 100%);
