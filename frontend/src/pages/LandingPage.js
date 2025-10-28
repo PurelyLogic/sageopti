@@ -67,10 +67,14 @@ const LandingPage = () => {
         <div className="relative z-10 text-center max-w-5xl">
           {/* Enhanced Master SAGE Logo */}
           <div className="mb-8 logo-container-enhanced">
+            <div className="logo-black-shadow"></div>
+            <div className="logo-ambient-shadow"></div>
+            <div className="logo-core-highlight"></div>
+            <div className="logo-radial-glow"></div>
             <img 
-              src="/sage-logo-new.png" 
+              src="https://customer-assets.emergentagent.com/job_seo-aeo-geo/artifacts/w0rrqvvn_Master_SAGE%20logo.png" 
               alt="SAGE Logo" 
-              className="mx-auto w-64 sm:w-80 md:w-96 lg:w-[512px] xl:w-[600px] h-auto max-w-full logo-enhanced-new"
+              className="mx-auto w-64 sm:w-80 md:w-96 lg:w-[512px] xl:w-[600px] h-auto max-w-full logo-enhanced"
               data-testid="sage-logo"
             />
           </div>
