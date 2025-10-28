@@ -27,14 +27,11 @@ const LandingPage = () => {
     <div className="min-h-screen bg-[#0f0f10] landing-page">
       {/* Hero Section */}
       <section className="relative min-h-screen flex flex-col items-center justify-center px-6 overflow-hidden" ref={heroRef}>
-        {/* Deepened Hero Background */}
-        <div className="hero-background-deep"></div>
+        {/* New Hero Background from Image */}
+        <div className="hero-background-image"></div>
         
         {/* Background Vignette for Cinematic Depth */}
         <div className="hero-vignette"></div>
-        
-        {/* Background Gradient Overlay */}
-        <div className="brand-gradient-overlay"></div>
 
         {/* Ambient Particles */}
         <div className="ambient-particles">
@@ -65,12 +62,13 @@ const LandingPage = () => {
         </div>
 
         <div className="relative z-10 text-center max-w-5xl">
-          {/* Enhanced Master SAGE Logo */}
+          {/* Enhanced Master SAGE Logo - Larger Size */}
           <div className="mb-8 logo-container-enhanced">
             <img 
               src="/sage-logo-new.png" 
               alt="SAGE Logo" 
-              className="mx-auto w-64 sm:w-80 md:w-96 lg:w-[512px] xl:w-[600px] h-auto max-w-full logo-enhanced-new"
+              className="mx-auto logo-enhanced-larger"
+              style={{ height: '200px', width: 'auto' }}
               data-testid="sage-logo"
             />
           </div>
