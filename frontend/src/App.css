@@ -338,34 +338,6 @@ body {
   filter: drop-shadow(0 0 30px rgba(0, 191, 179, 0.5));
 }
 
-/* Larger Logo Styling - 180-200px height on desktop */
-.logo-enhanced-larger {
-  position: relative;
-  display: block;
-  max-width: 90%;
-  filter: drop-shadow(0 0 12px rgba(0, 255, 200, 0.35));
-  transition: transform 0.3s ease, filter 0.3s ease;
-  will-change: transform;
-  animation: logo-glow-pulse 3s ease-in-out infinite;
-}
-
-.logo-enhanced-larger:hover {
-  transform: scale(1.05);
-  filter: drop-shadow(0 0 18px rgba(0, 255, 200, 0.5));
-}
-
-@media (max-width: 768px) {
-  .logo-enhanced-larger {
-    height: 120px !important;
-  }
-}
-
-@media (max-width: 480px) {
-  .logo-enhanced-larger {
-    height: 100px !important;
-  }
-}
-
 @keyframes logo-glow-pulse {
   0%, 100% {
     filter: drop-shadow(0 0 20px rgba(0, 191, 179, 0.3));
