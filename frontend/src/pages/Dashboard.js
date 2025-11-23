@@ -67,6 +67,16 @@ const Dashboard = () => {
     <div className="min-h-screen bg-[#0f0f10] flex" data-testid="dashboard">
       {/* Sidebar */}
       <aside className="sidebar w-64 min-h-screen p-6">
+        {/* Back to Home Button */}
+        <button
+          onClick={() => navigate('/')}
+          className="w-full mb-6 flex items-center gap-2 px-4 py-3 rounded-lg bg-[#1a1a1b] hover:bg-[#252527] transition-all duration-200 text-gray-300 hover:text-white border border-[#2a2a2b] hover:border-[#00BFB3]/30"
+          data-testid="back-to-home"
+        >
+          <ArrowLeft className="w-5 h-5" />
+          <span className="text-sm font-medium">Back to Home</span>
+        </button>
+
         <div className="mb-8">
           <h1 className="text-2xl font-bold gradient-text">SAGE</h1>
           <p className="text-xs text-gray-400">Optimization Dashboard</p>
