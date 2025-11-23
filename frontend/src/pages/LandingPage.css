@@ -100,6 +100,28 @@
   line-height: 1.75;
 }
 
+/* Button Animations */
+@keyframes button-glow-pulse {
+  0%, 100% {
+    box-shadow: 0 10px 15px -3px rgba(6, 182, 212, 0.3), 0 0 20px rgba(16, 185, 129, 0.2);
+  }
+  50% {
+    box-shadow: 0 10px 15px -3px rgba(6, 182, 212, 0.5), 0 0 30px rgba(16, 185, 129, 0.4);
+  }
+}
+
+@keyframes button-gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 /* Buttons */
 .sage-button-group {
   display: flex;
@@ -119,18 +141,27 @@
   border-radius: 0.5rem;
   cursor: pointer;
   transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .sage-button-primary {
-  background: linear-gradient(to right, #1e40af, #0891b2, #14b8a6);
+  background: linear-gradient(135deg, #1e40af 0%, #0891b2 25%, #10b981 50%, #14b8a6 75%, #10b981 100%);
+  background-size: 200% 200%;
   color: white;
-  box-shadow: 0 10px 15px -3px rgba(6, 182, 212, 0.3);
+  box-shadow: 0 10px 15px -3px rgba(6, 182, 212, 0.3), 0 0 20px rgba(16, 185, 129, 0.2);
+  animation: button-gradient-shift 3s ease infinite, button-glow-pulse 2s ease-in-out infinite;
 }
 
 .sage-button-primary:hover {
-  background: linear-gradient(to right, #1e3a8a, #0e7490, #0f766e);
-  box-shadow: 0 10px 15px -3px rgba(6, 182, 212, 0.5);
-  transform: scale(1.05);
+  background: linear-gradient(135deg, #1e3a8a 0%, #0e7490 25%, #059669 50%, #0f766e 75%, #059669 100%);
+  background-size: 200% 200%;
+  box-shadow: 0 10px 15px -3px rgba(6, 182, 212, 0.6), 0 0 35px rgba(16, 185, 129, 0.5);
+  transform: scale(1.05) translateY(-2px);
+}
+
+.sage-button-primary:active {
+  transform: scale(0.98) translateY(0);
 }
 
 .sage-button-secondary {
@@ -138,12 +169,18 @@
   color: rgba(209, 213, 219, 0.9);
   border: 2px solid rgba(6, 182, 212, 0.5);
   box-shadow: 0 10px 15px -3px rgba(6, 182, 212, 0.2);
+  animation: button-glow-pulse 2s ease-in-out infinite;
 }
 
 .sage-button-secondary:hover {
-  border-color: rgba(6, 182, 212, 0.8);
-  box-shadow: 0 10px 15px -3px rgba(6, 182, 212, 0.4);
-  transform: scale(1.05);
+  border-color: rgba(16, 185, 129, 0.8);
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);
+  box-shadow: 0 10px 15px -3px rgba(6, 182, 212, 0.4), 0 0 25px rgba(16, 185, 129, 0.3);
+  transform: scale(1.05) translateY(-2px);
+}
+
+.sage-button-secondary:active {
+  transform: scale(0.98) translateY(0);
 }
 
 /* Responsive */
