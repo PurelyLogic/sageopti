@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { LayoutDashboard, FileText, History, Settings, TrendingUp, Zap, MapPin, ChevronRight } from "lucide-react";
+import { LayoutDashboard, FileText, History, Settings, TrendingUp, Zap, MapPin, ChevronRight, ArrowLeft, Home } from "lucide-react";
 import axios from "axios";
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
