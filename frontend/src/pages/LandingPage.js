@@ -1,5 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
+import { Sparkles, Shield, CheckCircle } from "lucide-react";
 import "./LandingPage.css";
 
 const LandingPage = () => {
