@@ -1,0 +1,174 @@
+/* SAGE Landing Page Styles */
+
+/* Container */
+.sage-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000000;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Radial Glow Effect */
+.sage-glow-effect {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.sage-glow-inner {
+  width: 1200px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.25) 0%, rgba(20, 184, 166, 0.1) 50%, transparent 100%);
+  filter: blur(80px);
+}
+
+/* Content */
+.sage-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Logo */
+.sage-logo-container {
+  width: 100%;
+  max-width: 900px;
+  margin-bottom: 5rem;
+}
+
+.sage-logo {
+  position: relative;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Headline */
+.sage-headline {
+  font-size: 3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  letter-spacing: 0.05em;
+}
+
+/* Shiny Text Animation */
+@keyframes shiny-animation {
+  0% {
+    background-position: 200% center;
+  }
+  100% {
+    background-position: -200% center;
+  }
+}
+
+.sage-shiny-text {
+  background: linear-gradient(
+    110deg,
+    #6b7280 0%,
+    #d1d5db 25%,
+    #ffffff 50%,
+    #d1d5db 75%,
+    #6b7280 100%
+  );
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shiny-animation 3s linear infinite;
+  font-size: 38px;
+}
+
+/* Subtitle */
+.sage-subtitle {
+  font-size: 1.125rem;
+  color: rgba(209, 213, 219, 0.8);
+  margin-bottom: 2rem;
+  max-width: 48rem;
+  line-height: 1.75;
+}
+
+/* Buttons */
+.sage-button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.sage-button {
+  padding: 1.5rem 2.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sage-button-primary {
+  background: linear-gradient(to right, #1e40af, #0891b2, #14b8a6);
+  color: white;
+  box-shadow: 0 10px 15px -3px rgba(6, 182, 212, 0.3);
+}
+
+.sage-button-primary:hover {
+  background: linear-gradient(to right, #1e3a8a, #0e7490, #0f766e);
+  box-shadow: 0 10px 15px -3px rgba(6, 182, 212, 0.5);
+  transform: scale(1.05);
+}
+
+.sage-button-secondary {
+  background: transparent;
+  color: rgba(209, 213, 219, 0.9);
+  border: 2px solid rgba(6, 182, 212, 0.5);
+  box-shadow: 0 10px 15px -3px rgba(6, 182, 212, 0.2);
+}
+
+.sage-button-secondary:hover {
+  border-color: rgba(6, 182, 212, 0.8);
+  box-shadow: 0 10px 15px -3px rgba(6, 182, 212, 0.4);
+  transform: scale(1.05);
+}
+
+/* Responsive */
+@media (min-width: 640px) {
+  .sage-button-group {
+    flex-direction: row;
+  }
+
+  .sage-headline {
+    font-size: 2.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .sage-headline {
+    font-size: 3rem;
+  }
+
+  .sage-subtitle {
+    font-size: 1.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .sage-headline {
+    font-size: 3.75rem;
+  }
+}
