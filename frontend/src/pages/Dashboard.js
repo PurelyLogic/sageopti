@@ -1,20 +1,43 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { LayoutDashboard, FileText, History, Settings, TrendingUp, Zap, MapPin, ChevronRight, ArrowLeft, Home } from "lucide-react";
+import { LayoutDashboard, FileText, History, Settings, TrendingUp, Zap, MapPin, ChevronRight, ArrowLeft, Home, LogOut } from "lucide-react";
 import axios from "axios";
+import { useAuth } from "../contexts/AuthContext";
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
 
 const Dashboard = () => {
   const navigate = useNavigate();
+  const { user, logout, processSessionId } = useAuth();
   const [activeTab, setActiveTab] = useState('dashboard');
   const [audits, setAudits] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  // Handle session_id from URL fragment (after Emergent Auth redirect)
   useEffect(() => {
-    fetchAudits();
-  }, []);
+    const handleSessionId = async () => {
+      const hash = window.location.hash;
+      if (hash && hash.includes('session_id=')) {
+        const sessionId = hash.split('session_id=')[1]?.split('&')[0];
+        if (sessionId) {
+          const success = await processSessionId(sessionId);
+          if (success) {
+            // Clean URL
+            window.history.replaceState(null, '', window.location.pathname);
+          }
+        }
+      }
+    };
+    
+    handleSessionId();
+  }, [processSessionId]);
+
+  useEffect(() => {
+    if (user) {
+      fetchAudits();
+    }
+  }, [user]);
 
   const fetchAudits = async () => {
     try {
