@@ -129,6 +129,107 @@ def generate_mock_audit(url: str) -> Dict[str, Any]:
 async def root():
     return {"message": "SAGE API - Optimizing All Engines"}
 
+
+# Auth Endpoints
+@api_router.post("/auth/process-session")
+async def process_session(request: Request, response: Response):
+    """
+    Process session_id from Emergent Auth redirect
+    Exchange session_id for user data and session_token
+    """
+    try:
+        body = await request.json()
+        session_id = body.get("session_id")
+        
+        if not session_id:
+            raise HTTPException(status_code=400, detail="session_id required")
+        
+        # Exchange session_id for user data
+        session_data = await process_session_id(session_id)
+        
+        # Create or get user
+        user = await create_or_update_user(db, session_data)
+        
+        # Create session in database
+        await create_session(db, user.id, session_data.session_token)
+        
+        # Set httpOnly cookie
+        set_session_cookie(response, session_data.session_token)
+        
+        return {
+            "user": {
+                "id": user.id,
+                "email": user.email,
+                "name": user.name,
+                "picture": user.picture
+            }
+        }
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Session processing error: {e}")
+        raise HTTPException(status_code=500, detail="Failed to process session")
+
+
+@api_router.get("/auth/me")
+async def get_current_user_endpoint(request: Request):
+    """
+    Get current authenticated user
+    Checks session_token from cookie or Authorization header
+    """
+    session_token = get_session_token_from_request(request)
+    
+    if not session_token:
+        raise HTTPException(status_code=401, detail="Not authenticated")
+    
+    user = await get_user_from_session(db, session_token)
+    
+    if not user:
+        raise HTTPException(status_code=401, detail="Invalid or expired session")
+    
+    return {
+        "id": user.id,
+        "email": user.email,
+        "name": user.name,
+        "picture": user.picture
+    }
+
+
+@api_router.post("/auth/logout")
+async def logout(request: Request, response: Response):
+    """
+    Logout user by deleting session and clearing cookie
+    """
+    session_token = get_session_token_from_request(request)
+    
+    if session_token:
+        await delete_session(db, session_token)
+    
+    clear_session_cookie(response)
+    
+    return {"message": "Logged out successfully"}
+
+
+# Helper function for protected routes
+async def get_current_user(request: Request) -> User:
+    """
+    Dependency for protected routes
+    Returns current user or raises 401
+    """
+    session_token = get_session_token_from_request(request)
+    
+    if not session_token:
+        raise HTTPException(status_code=401, detail="Not authenticated")
+    
+    user = await get_user_from_session(db, session_token)
+    
+    if not user:
+        raise HTTPException(status_code=401, detail="Invalid or expired session")
+    
+    return user
+
+
 @api_router.post("/audit", response_model=Audit)
 async def create_audit(request: AuditRequest):
     """Run a real website audit and return scores with AI-powered recommendations"""
