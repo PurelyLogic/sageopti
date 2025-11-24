@@ -330,6 +330,11 @@ test_plan:
     - "✅ FRONTEND E2E TESTING - Dashboard score panels and sidebar navigation"
     - "✅ FRONTEND E2E TESTING - Multiple URL testing showing different contextual results"
     - "✅ FRONTEND E2E TESTING - Generate Full Report button functionality"
+    - "✅ AUTH BACKEND TESTING - GET /api/auth/me with valid session_token returns user data"
+    - "✅ AUTH BACKEND TESTING - GET /api/auth/me with invalid/missing token returns 401"
+    - "✅ AUTH BACKEND TESTING - POST /api/auth/logout successfully deletes session"
+    - "✅ AUTH BACKEND TESTING - Session invalidation verified after logout"
+    - "✅ AUTH BACKEND TESTING - MongoDB schema correct (id fields, user_id references)"
 
 agent_communication:
   - agent: "main"
