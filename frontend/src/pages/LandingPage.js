@@ -25,83 +25,47 @@ const LandingPage = () => {
 
   return (
     <div className="min-h-screen bg-[#0f0f10] landing-page">
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center px-6 overflow-hidden" ref={heroRef}>
-        {/* Deepened Hero Background */}
-        <div className="hero-background-deep"></div>
-        
-        {/* Background Vignette for Cinematic Depth */}
-        <div className="hero-vignette"></div>
-        
-        {/* Background Gradient Overlay */}
-        <div className="brand-gradient-overlay"></div>
-
-        {/* Ambient Particles */}
-        <div className="ambient-particles">
-          <div className="particle-dot"></div>
-          <div className="particle-dot"></div>
-          <div className="particle-dot"></div>
-          <div className="particle-dot"></div>
-          <div className="particle-dot"></div>
-          <div className="particle-dot"></div>
-          <div className="particle-dot"></div>
-          <div className="particle-dot"></div>
-          <div className="particle-dot"></div>
-          <div className="particle-dot"></div>
+      {/* NEW Hero Section */}
+      <section className="sage-container relative">
+        {/* Radial Glow Effect */}
+        <div className="sage-glow-effect">
+          <div className="sage-glow-inner"></div>
         </div>
 
-        {/* Enhanced Energy Particle Field */}
-        <div className="particle-field">
-          <div className="energy-particle"></div>
-          <div className="energy-particle"></div>
-          <div className="energy-particle"></div>
-          <div className="energy-particle"></div>
-          <div className="energy-particle"></div>
-        </div>
-
-        {/* Animated Glow Effect */}
-        <div className="glow-container-brand">
-          <div className="glow-ring-brand"></div>
-        </div>
-
-        <div className="relative z-10 text-center max-w-5xl">
-          {/* Enhanced Master SAGE Logo */}
-          <div className="mb-8 logo-container-enhanced">
-            <div className="logo-black-shadow"></div>
-            <div className="logo-ambient-shadow"></div>
-            <div className="logo-core-highlight"></div>
-            <div className="logo-radial-glow"></div>
+        {/* Main Content */}
+        <div className="sage-content">
+          {/* Logo */}
+          <div className="sage-logo-container">
             <img 
-              src="https://customer-assets.emergentagent.com/job_seo-aeo-geo/artifacts/w0rrqvvn_Master_SAGE%20logo.png" 
-              alt="SAGE Logo" 
-              className="mx-auto w-64 sm:w-80 md:w-96 lg:w-[512px] xl:w-[600px] h-auto max-w-full logo-enhanced"
+              src="/sage-logo-3d.png" 
+              alt="SAGE Logo"
+              className="sage-logo"
               data-testid="sage-logo"
             />
           </div>
-          
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight mb-6 brand-title fade-in-up delay-200">
-            MEET SAGE
+
+          {/* Headline */}
+          <h1 className="sage-headline">
+            <span className="sage-shiny-text">Optimizing All Engines.</span>
           </h1>
-          
-          <div className="official-tagline hero-tagline mb-8 tagline-sweep-effect fade-in-up delay-300" data-testid="hero-tagline">
-            Optimizing All Engines.
-          </div>
-          
-          <p className="text-base sm:text-lg text-gray-400 mb-8 max-w-3xl mx-auto fade-in-up delay-400">
+
+          {/* Subtitle */}
+          <p className="sage-subtitle">
             Audit, Analyze, and Elevate your digital presence across Search, Answers, and Maps.
           </p>
 
-          <div className="flex flex-col sm:flex-row flex-wrap gap-4 justify-center fade-in-up delay-500">
+          {/* CTA Buttons */}
+          <div className="sage-button-group">
             <button 
-              onClick={() => navigate('/audit')}
-              className="btn-primary-brand"
+              onClick={() => navigate('/audit')} 
+              className="sage-button sage-button-primary"
               data-testid="run-free-audit-btn"
             >
               RUN FREE AUDIT
             </button>
             <button 
-              onClick={() => navigate('/dashboard')}
-              className="btn-secondary-brand"
+              onClick={() => navigate('/dashboard')} 
+              className="sage-button sage-button-secondary"
               data-testid="view-dashboard-btn"
             >
               VIEW DASHBOARD
