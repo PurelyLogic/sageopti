@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { Sparkles, TrendingUp, MapPin, Zap, Shield, BarChart3, Search, CheckCircle } from "lucide-react";
 import { motion } from "framer-motion";
+import "./LandingPage.css";
 
 const LandingPage = () => {
   const navigate = useNavigate();
