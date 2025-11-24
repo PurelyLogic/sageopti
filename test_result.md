@@ -258,6 +258,18 @@ frontend:
       - working: true
         agent: "main"
         comment: "✅ SAGE icon logo added to header. Downloaded icon logo, integrated into Header component alongside text, added CSS styling with glow effect and hover animations. Logo visible in both normal and scrolled states. Enhanced brand identity in navigation."
+  
+  - task: "Add SAGE icon logo to footer and update copyright"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/pages/LandingPage.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "main"
+        comment: "✅ SAGE icon logo added to footer alongside SAGE text with gradient. Updated copyright text from 'PurelyLogic Intelligence. All rights reserved.' to 'SAGE is a subsidiary to PurelyLogic. All rights reserved.' Consistent branding now across header and footer."
 
 metadata:
   created_by: "main_agent"
