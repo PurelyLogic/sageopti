@@ -5,6 +5,7 @@ import LandingPage from "@/pages/LandingPage";
 import Dashboard from "@/pages/Dashboard";
 import AuditPage from "@/pages/AuditPage";
 import ReportPage from "@/pages/ReportPage";
+import LoginPage from "@/pages/LoginPage";
 
 function App() {
   return (
