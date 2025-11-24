@@ -610,10 +610,21 @@ const LandingPage = () => {
         <div className="max-w-7xl mx-auto">
           {/* Main Footer Content */}
           <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-8">
-            {/* Left: Copyright and Taglines */}
+            {/* Left: Logo, Copyright and Taglines */}
             <div className="text-center md:text-left">
+              <div className="flex items-center justify-center md:justify-start gap-3 mb-3">
+                <img 
+                  src="/sage-icon-logo.png" 
+                  alt="SAGE Icon" 
+                  className="h-10 w-auto"
+                  style={{ filter: 'drop-shadow(0 0 8px rgba(6, 182, 212, 0.4))' }}
+                />
+                <span className="text-2xl font-bold bg-gradient-to-r from-[#00BFB3] to-[#0EF6A7] bg-clip-text text-transparent">
+                  SAGE
+                </span>
+              </div>
               <p className="text-sm sm:text-base text-gray-300 mb-2">
-                © 2025 <span className="text-[#0EF6A7] font-semibold">PurelyLogic Intelligence</span>. All rights reserved.
+                © 2025 SAGE is a subsidiary to <span className="text-[#0EF6A7] font-semibold">PurelyLogic</span>. All rights reserved.
               </p>
               <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 text-xs sm:text-sm text-gray-400">
                 <span className="flex items-center gap-2">
