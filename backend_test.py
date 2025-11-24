@@ -439,6 +439,21 @@ class SAGEBackendTester:
             # Test 5: Error Handling
             await self.test_error_handling()
             
+            # Auth Tests (Phase 2)
+            print("\n🔐 Testing Authentication Endpoints")
+            print("-" * 40)
+            
+            # Test 6-8: Auth Me endpoint with different token scenarios
+            await self.test_auth_me_valid_token()
+            await self.test_auth_me_invalid_token()
+            await self.test_auth_me_no_token()
+            
+            # Test 9: Logout
+            await self.test_auth_logout()
+            
+            # Test 10: Verify session invalidated after logout
+            await self.test_auth_me_after_logout()
+            
             # Summary
             print("\n" + "=" * 60)
             print("📊 TEST SUMMARY")
