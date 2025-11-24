@@ -24,6 +24,7 @@ class SAGEBackendTester:
         self.session = None
         self.test_results = []
         self.audit_ids = []
+        self.test_session_token = "test_session_1764009887730"  # From MongoDB setup
     
     async def setup(self):
         """Setup test session"""
