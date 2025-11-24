@@ -128,7 +128,7 @@ const LandingPage = () => {
       </section>
 
       {/* What Happens When You Run a Free Audit Section */}
-      <section className="py-32 px-6 relative">
+      <section id="how-it-works" className="py-32 px-6 relative">
         <div className="max-w-5xl mx-auto">
           {/* Soft Gradient Divider Top */}
           <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00BFB3] to-transparent opacity-30"></div>
