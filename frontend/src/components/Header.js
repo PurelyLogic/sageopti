@@ -53,12 +53,25 @@ const Header = () => {
 
         {/* CTA Button */}
         <div className="sage-header-cta">
-          <button onClick={() => navigate("/login")} className="sage-login-button">
-            Login
-          </button>
-          <button onClick={() => navigate("/audit")} className="sage-cta-button">
-            Run Free Audit
-          </button>
+          {user ? (
+            <>
+              <button onClick={() => navigate("/dashboard")} className="sage-login-button">
+                Dashboard
+              </button>
+              <button onClick={logout} className="sage-logout-button">
+                Logout
+              </button>
+            </>
+          ) : (
+            <>
+              <button onClick={() => navigate("/login")} className="sage-login-button">
+                Login
+              </button>
+              <button onClick={() => navigate("/audit")} className="sage-cta-button">
+                Run Free Audit
+              </button>
+            </>
+          )}
         </div>
 
         {/* Mobile Menu Toggle */}
