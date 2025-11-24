@@ -304,7 +304,9 @@ metadata:
   run_ui: false
 
 test_plan:
-  current_focus: []
+  current_focus:
+    - "Implement Emergent Auth backend (Phase 2)"
+    - "Implement Emergent Auth frontend (Phase 2)"
   stuck_tasks: []
   test_all: false
   test_priority: "high_first"
