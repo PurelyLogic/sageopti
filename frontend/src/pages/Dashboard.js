@@ -142,6 +142,30 @@ const Dashboard = () => {
             <span>Settings</span>
           </div>
         </nav>
+
+        {/* User Info & Logout */}
+        {user && (
+          <div className="mt-auto pt-6 border-t border-[#2a2a2b]">
+            <div className="flex items-center gap-3 mb-3">
+              <img 
+                src={user.picture || 'https://via.placeholder.com/40'} 
+                alt={user.name}
+                className="w-10 h-10 rounded-full border-2 border-[#00BFB3]"
+              />
+              <div className="flex-1 min-w-0">
+                <p className="text-sm font-medium text-white truncate">{user.name}</p>
+                <p className="text-xs text-gray-400 truncate">{user.email}</p>
+              </div>
+            </div>
+            <button
+              onClick={logout}
+              className="w-full flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-red-500/10 hover:bg-red-500/20 transition-all duration-200 text-red-400 hover:text-red-300 border border-red-500/30"
+            >
+              <LogOut className="w-4 h-4" />
+              <span className="text-sm font-medium">Logout</span>
+            </button>
+          </div>
+        )}
       </aside>
 
       {/* Main Content */}
