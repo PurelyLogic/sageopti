@@ -275,6 +275,127 @@ class SAGEBackendTester:
         
         return all_passed
     
+    async def test_auth_me_valid_token(self):
+        """Test 6: Auth Me Endpoint - Valid Token"""
+        try:
+            headers = {"Authorization": f"Bearer {self.test_session_token}"}
+            async with self.session.get(f"{API_BASE}/auth/me", headers=headers) as response:
+                if response.status == 200:
+                    data = await response.json()
+                    
+                    # Validate user data structure
+                    required_fields = ['id', 'email', 'name', 'picture']
+                    missing_fields = [field for field in required_fields if field not in data]
+                    
+                    if missing_fields:
+                        self.log_result("Auth Me - Valid Token", False, f"Missing user fields: {missing_fields}", data)
+                        return False
+                    
+                    # Validate field types
+                    if not isinstance(data.get('email'), str) or '@' not in data.get('email', ''):
+                        self.log_result("Auth Me - Valid Token", False, f"Invalid email format: {data.get('email')}")
+                        return False
+                    
+                    self.log_result("Auth Me - Valid Token", True, f"Retrieved user data: {data.get('name')} ({data.get('email')})")
+                    return True
+                    
+                elif response.status == 401:
+                    error_text = await response.text()
+                    self.log_result("Auth Me - Valid Token", False, f"Valid token rejected: {error_text}")
+                    return False
+                else:
+                    error_text = await response.text()
+                    self.log_result("Auth Me - Valid Token", False, f"HTTP {response.status}: {error_text}")
+                    return False
+                    
+        except Exception as e:
+            self.log_result("Auth Me - Valid Token", False, f"Request error: {str(e)}")
+            return False
+    
+    async def test_auth_me_invalid_token(self):
+        """Test 7: Auth Me Endpoint - Invalid Token"""
+        try:
+            headers = {"Authorization": "Bearer invalid_token_12345"}
+            async with self.session.get(f"{API_BASE}/auth/me", headers=headers) as response:
+                if response.status == 401:
+                    self.log_result("Auth Me - Invalid Token", True, "Properly rejected invalid token")
+                    return True
+                elif response.status == 200:
+                    data = await response.json()
+                    self.log_result("Auth Me - Invalid Token", False, f"Invalid token accepted: {data}")
+                    return False
+                else:
+                    error_text = await response.text()
+                    self.log_result("Auth Me - Invalid Token", False, f"Unexpected status {response.status}: {error_text}")
+                    return False
+                    
+        except Exception as e:
+            self.log_result("Auth Me - Invalid Token", False, f"Request error: {str(e)}")
+            return False
+    
+    async def test_auth_me_no_token(self):
+        """Test 8: Auth Me Endpoint - No Token"""
+        try:
+            async with self.session.get(f"{API_BASE}/auth/me") as response:
+                if response.status == 401:
+                    self.log_result("Auth Me - No Token", True, "Properly rejected missing token")
+                    return True
+                elif response.status == 200:
+                    data = await response.json()
+                    self.log_result("Auth Me - No Token", False, f"Missing token accepted: {data}")
+                    return False
+                else:
+                    error_text = await response.text()
+                    self.log_result("Auth Me - No Token", False, f"Unexpected status {response.status}: {error_text}")
+                    return False
+                    
+        except Exception as e:
+            self.log_result("Auth Me - No Token", False, f"Request error: {str(e)}")
+            return False
+    
+    async def test_auth_logout(self):
+        """Test 9: Auth Logout Endpoint"""
+        try:
+            headers = {"Authorization": f"Bearer {self.test_session_token}"}
+            async with self.session.post(f"{API_BASE}/auth/logout", headers=headers) as response:
+                if response.status == 200:
+                    data = await response.json()
+                    if "message" in data and "logged out" in data["message"].lower():
+                        self.log_result("Auth Logout", True, f"Logout successful: {data.get('message')}")
+                        return True
+                    else:
+                        self.log_result("Auth Logout", False, f"Unexpected logout response: {data}")
+                        return False
+                else:
+                    error_text = await response.text()
+                    self.log_result("Auth Logout", False, f"HTTP {response.status}: {error_text}")
+                    return False
+                    
+        except Exception as e:
+            self.log_result("Auth Logout", False, f"Request error: {str(e)}")
+            return False
+    
+    async def test_auth_me_after_logout(self):
+        """Test 10: Auth Me After Logout - Should Fail"""
+        try:
+            headers = {"Authorization": f"Bearer {self.test_session_token}"}
+            async with self.session.get(f"{API_BASE}/auth/me", headers=headers) as response:
+                if response.status == 401:
+                    self.log_result("Auth Me - After Logout", True, "Session properly invalidated after logout")
+                    return True
+                elif response.status == 200:
+                    data = await response.json()
+                    self.log_result("Auth Me - After Logout", False, f"Session still valid after logout: {data}")
+                    return False
+                else:
+                    error_text = await response.text()
+                    self.log_result("Auth Me - After Logout", False, f"Unexpected status {response.status}: {error_text}")
+                    return False
+                    
+        except Exception as e:
+            self.log_result("Auth Me - After Logout", False, f"Request error: {str(e)}")
+            return False
+    
     async def run_all_tests(self):
         """Run complete test suite"""
         print("🚀 Starting SAGE Backend Test Suite")
