@@ -65,7 +65,7 @@
 .sage-logo-container {
   width: 100%;
   max-width: 900px;
-  margin-bottom: 5rem;
+  margin-bottom: 8rem;
 }
 
 .sage-logo {
@@ -85,8 +85,9 @@
 .sage-headline {
   font-size: 3rem;
   font-weight: 600;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   letter-spacing: 0.05em;
+  padding: 0 2rem;
 }
 
 /* Shiny Text Animation */
