@@ -27,8 +27,11 @@ const LandingPage = () => {
 
   return (
     <div className="min-h-screen bg-[#0f0f10] landing-page">
+      {/* Header */}
+      <Header />
+
       {/* NEW Hero Section */}
-      <section className="sage-container relative">
+      <section className="sage-container relative" id="home">
         {/* Radial Glow Effect */}
         <div className="sage-glow-effect">
           <div className="sage-glow-inner"></div>
