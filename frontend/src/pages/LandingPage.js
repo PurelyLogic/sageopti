@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Sparkles, TrendingUp, MapPin, Zap, Shield, BarChart3, Search, CheckCircle } from "lucide-react";
 import { motion } from "framer-motion";
 import Header from "../components/Header";
+import TestimonialCarousel from "../components/TestimonialCarousel";
 import "./LandingPage.css";
 
 const LandingPage = () => {
