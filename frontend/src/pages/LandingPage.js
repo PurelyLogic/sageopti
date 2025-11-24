@@ -4,6 +4,7 @@ import { Sparkles, TrendingUp, MapPin, Zap, Shield, BarChart3, Search, CheckCirc
 import { motion } from "framer-motion";
 import Header from "../components/Header";
 import TestimonialCarousel from "../components/TestimonialCarousel";
+import FAQ from "../components/FAQ";
 import "./LandingPage.css";
 
 const LandingPage = () => {
@@ -235,6 +236,7 @@ const LandingPage = () => {
 
       {/* Testimonial Carousel - Wall of Love */}
       <TestimonialCarousel />
+      <FAQ />
 
       {/* Pricing Section */}
       <section id="pricing" className="py-32 px-6 relative">
