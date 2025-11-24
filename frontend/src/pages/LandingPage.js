@@ -233,6 +233,9 @@ const LandingPage = () => {
         </div>
       </section>
 
+      {/* Testimonial Carousel - Wall of Love */}
+      <TestimonialCarousel />
+
       {/* Pricing Section */}
       <section id="pricing" className="py-32 px-6 relative">
         <div className="max-w-7xl mx-auto">
