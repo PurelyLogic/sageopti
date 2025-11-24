@@ -12,6 +12,17 @@ from datetime import datetime, timezone
 import random
 
 from audit_engine import AuditEngine
+from auth import (
+    process_session_id,
+    create_or_update_user,
+    create_session,
+    get_user_from_session,
+    delete_session,
+    get_session_token_from_request,
+    set_session_cookie,
+    clear_session_cookie,
+    User
+)
 
 
 ROOT_DIR = Path(__file__).parent
