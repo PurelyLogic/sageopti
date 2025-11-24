@@ -1,29 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Eye, EyeOff, Mail, Lock, ArrowLeft } from "lucide-react";
+import { ArrowLeft, LogIn } from "lucide-react";
+import { useAuth } from "../contexts/AuthContext";
 import "./LoginPage.css";
 
 const LoginPage = () => {
   const navigate = useNavigate();
-  const [showPassword, setShowPassword] = useState(false);
-  const [formData, setFormData] = useState({
-    email: "",
-    password: ""
-  });
+  const { user, login, isAuthenticated } = useAuth();
+  const [error, setError] = useState(null);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // TODO: Add authentication logic here
-    console.log("Login attempt:", formData);
-    // For now, redirect to dashboard
-    navigate("/dashboard");
-  };
+  // If already authenticated, redirect to dashboard
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate("/dashboard", { replace: true });
+    }
+  }, [isAuthenticated, navigate]);
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+  const handleGoogleLogin = () => {
+    try {
+      login(); // Redirects to Emergent Auth
+    } catch (err) {
+      setError("Failed to initiate login. Please try again.");
+      console.error("Login error:", err);
+    }
   };
 
   return (
