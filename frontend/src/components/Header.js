@@ -29,6 +29,7 @@ const Header = () => {
       <div className="sage-header-container">
         {/* Logo */}
         <div className="sage-header-logo" onClick={() => navigate("/")}>
+          <img src="/sage-icon-logo.png" alt="SAGE Icon" className="sage-logo-icon" />
           <span className="sage-logo-text">SAGE</span>
         </div>
 
